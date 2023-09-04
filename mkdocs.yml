@@ -1,3 +1,6 @@
 site_name: Kinther's Site
 theme:
   name: material
+plugins:
+  - search
+  - roamlinks
