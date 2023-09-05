@@ -2,7 +2,3 @@
 
 This is Kinther's personal site using mkdocs.
 
-This is a image
-
-![[Daydreamer.png]]
-
