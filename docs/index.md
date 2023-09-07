@@ -4,7 +4,7 @@ This is Kinther's personal site using mkdocs.
 
 用来提交博客的脚本
 
-```powershell
+```powershell title="$profile"
 function post-blog {
     cd /local/path/to/site/
     $CurrentTime = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
