@@ -60,7 +60,7 @@ theme:
     accent: indigo
     toggle:
       icon: material/toggle-switch-off
-      name: Switch to system preference   # - toc.integrate
+      name: Switch to system preference   
   language: zh
   icon:
     repo: fontawesome/brands/git-alt

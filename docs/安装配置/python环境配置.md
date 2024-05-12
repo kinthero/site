@@ -11,7 +11,7 @@
 
 scoop 安装和切换 python 命令
 
-```shell
+```powershell
 # 添加其他版本的python的仓库
 scoop bucket add versions
 # 查看可以安装的python版本
@@ -30,13 +30,13 @@ scoop reset python310
 
 安装 uv，这里使用 powershell 安装，后面提到的 pipx 也可以安装，但是好像不能自我更新
 
-```shell
+```powershell
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 基本使用
 
-```shell
+```powershell
 # 创建虚拟环境
 uv venv
 # 激活虚拟环境
@@ -49,7 +49,7 @@ deactivate
 
 常用功能
 
-```shell
+```powershell
 # 导出requirements文件
 uv pip freeze | uv pip compile - -o requirements.txt
 # 同步requirements文件
@@ -58,7 +58,7 @@ uv pip sync requirements.txt
 
 为了方便使用，在 powershell 中添加命令别名，powershell 中执行`code $profile`添加以下命令：
 
-```shell
+```powershell
 New-Alias -Name av -Value '.\.venv\Scripts\Activate.ps1'
 New-Alias -Name dav -Value 'deactivate'
 ```
@@ -71,13 +71,13 @@ New-Alias -Name dav -Value 'deactivate'
 
 这里使用 scoop 安装 [pipx](https://github.com/pypa/pipx)
 
-```shell
+```powershell
 scoop install pipx
 ```
 
 使用 pipx 安装一些常用的工具
 
-```shell
+```powershell
 pipx install ruff
 pipx install mypy
 pipx install cowsay
