@@ -80,7 +80,7 @@ theme:
     annotation: material/arrow-right-circle
 
 plugins:
-  # - blog
+  - blog
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - minify:
@@ -141,3 +141,16 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
     
+nav:
+  - Home: 
+    - index.md
+    - 学习清单: study-list.md
+  # - python: 
+    # - python/index.md
+  - 软件配置:
+    # - tools/index.md
+    - git: tools/git-setting.md
+    - python: tools/python-setting.md
+    - vscode: tools/vscode-setting.md
+  - Blog:
+    - blog/index.md
