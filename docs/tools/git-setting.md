@@ -8,6 +8,7 @@
 [core]
     # 防止中文乱码
     quotepath = false
+    editor = nvim
 
 [alias]
     ge = git config --global -e
