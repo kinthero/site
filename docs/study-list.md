@@ -2,6 +2,10 @@
 
 ## AI
 
+### 教程
+
+[llama3-from-scratch](https://github.com/naklecha/llama3-from-scratch)
+
 ### 文档
 
 - [让天下没有难学的大模型](https://github.com/liguodongiot/llm-action)
