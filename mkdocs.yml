@@ -1,13 +1,13 @@
 # project information
 site_name: kinther's site
-site_url: https://kinthero.github.io/blog/
+site_url: https://kinthero.github.io/site/
 site_author: kinther
 site_description: >-
   kinther's site, write someghing
 
 # Repository
 repo_name: kinthero/blog
-repo_url: https://github.com/kinthero/blog
+repo_url: https://github.com/kinthero/site
 
 # Copyright
 copyright: Copyright &copy; 2024 kinther
