@@ -153,5 +153,6 @@ nav:
     - python: tools/python-setting.md
     - vscode: tools/vscode-setting.md
     - docker安装sqlserver: tools/docker-install-sqlserver.md
+    - docker安装sqlserver简易版: tools/docker-install-sqlserver-easy.md
   - Blog:
     - blog/index.md
