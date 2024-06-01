@@ -152,5 +152,6 @@ nav:
     - git: tools/git-setting.md
     - python: tools/python-setting.md
     - vscode: tools/vscode-setting.md
+    - docker安装sqlserver: tools/docker-install-sqlserver.md
   - Blog:
     - blog/index.md
