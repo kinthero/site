@@ -131,12 +131,12 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  # - pymdownx.tabbed:
-  #     alternate_style: true
-  #     combine_header_slug: true
-  #     slugify: !!python/object/apply:pymdownx.slugs.slugify
-  #       kwds:
-  #         case: lower
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      # slugify: !!python/object/apply:pymdownx.slugs.slugify
+        # kwds:
+          # case: lower
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
@@ -149,9 +149,11 @@ nav:
     # - python/index.md
   - 软件配置:
     # - tools/index.md
+    - mkdocs基础: tools/mkdocs-material-learn.md
     - git: tools/git-setting.md
     - python: tools/python-setting.md
     - vscode: tools/vscode-setting.md
+    - alacritty配置: tools/alacritty-config.md
     - docker安装sqlserver: tools/docker-install-sqlserver.md
     - docker安装sqlserver简易版: tools/docker-install-sqlserver-easy.md
   - Blog:
