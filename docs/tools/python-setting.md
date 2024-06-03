@@ -2,7 +2,7 @@
 
 本文只讲 windows 的 python 环境配置
 
-## 安装 python
+## 安装 python(旧的方法)
 
 安装 python 的方法有很多，目前个人比较喜欢用 scoop 安装 python，主要原因有以下几点：
 
@@ -24,7 +24,37 @@ scoop install python
 scoop reset python310
 ```
 
-## 环境管理
+## 安装 python(新)
+
+经常会写很多小测试 demo，如果每次都创建一个虚拟环境的话，会浪费很多磁盘空间。所以还是有个 conda 环境好点。最近发现一个新的 conda 发行版：miniforge。比 miniconda 相对大一点，但是默认包含的包也多一点。
+从[项目地址](https://github.com/conda-forge/miniforge)下载对应的安装包进行安装就可以。
+
+然后用下面的配置加速一下 conda
+
+```shell
+conda config --set solver libmamba
+```
+
+在 windows 上安装完成了之后，会发现只有 cmd 的命令行版本，打开`Miniforge Prompt`，然后运行
+
+```shell
+conda init powershell
+```
+
+conda 环境管理
+
+```shell
+# 创建环境
+conda create -n [env_name] python=x.xx
+# 激活环境
+conda activate [env_name]
+# 退出环境
+conda deactivate
+# 删除环境
+conda remove -n [env_name] --all
+```
+
+## 虚拟环境管理
 
 目前感觉速度最快的 python 环境管理工具是 [uv](https://github.com/astral-sh/uv)
 
