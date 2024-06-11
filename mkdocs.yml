@@ -156,5 +156,6 @@ nav:
     - alacritty配置: tools/alacritty-config.md
     - docker安装sqlserver: tools/docker-install-sqlserver.md
     - docker安装sqlserver简易版: tools/docker-install-sqlserver-easy.md
+    - docker安装hadoop集群: tools/docker-install-hadoop.md
   - Blog:
     - blog/index.md
