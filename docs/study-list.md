@@ -5,6 +5,8 @@
 ### 教程
 
 [llama3-from-scratch](https://github.com/naklecha/llama3-from-scratch)
+[动手学大模型](https://sjtullm.gitbook.io/dive-into-llms)
+[大规模语言模型：从理论到实践](https://intro-llm.github.io/)
 
 ### 文档
 
