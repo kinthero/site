@@ -14,4 +14,4 @@ uv venv
 uv pip sync requirements.txt
 ```
 
-之后写了提交就可以
+更新完了代码之后，`make` 就可以完成提交和更新
