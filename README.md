@@ -1,6 +1,6 @@
 # kinther's blog
 
-kinther 的个人博客仓库，使用 mkdocs 部署。[kinthero.github.io](https://kinthero.github.io/blog/)
+kinther 的个人博客仓库，使用 mkdocs 部署。[网址](https://kinthero.github.io/site/)
 
 ## 如何在新电脑继续写博客？
 
