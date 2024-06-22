@@ -8,6 +8,7 @@
 - [动手学大模型](https://sjtullm.gitbook.io/dive-into-llms)
 - [大规模语言模型：从理论到实践](https://intro-llm.github.io/)
 - [开源大模型食用指南](https://github.com/datawhalechina/self-llm)
+- [面向开发者的大模型手册](https://datawhalechina.github.io/llm-cookbook/#/)
 
 ### 文档
 
