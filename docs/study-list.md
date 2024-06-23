@@ -9,6 +9,7 @@
 - [大规模语言模型：从理论到实践](https://intro-llm.github.io/)
 - [开源大模型食用指南](https://github.com/datawhalechina/self-llm)
 - [面向开发者的大模型手册](https://datawhalechina.github.io/llm-cookbook/#/)
+- [微软AI课程](https://microsoft.github.io/generative-ai-for-beginners/#/)
 
 ### 文档
 
