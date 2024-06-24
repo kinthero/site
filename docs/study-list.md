@@ -10,6 +10,7 @@
 - [开源大模型食用指南](https://github.com/datawhalechina/self-llm)
 - [面向开发者的大模型手册](https://datawhalechina.github.io/llm-cookbook/#/)
 - [微软AI课程](https://microsoft.github.io/generative-ai-for-beginners/#/)
+- [Builds a Large Language Model From Scratch](https://github.com/rasbt/LLMs-from-scratch)
 
 ### 文档
 
