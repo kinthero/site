@@ -5,6 +5,7 @@
 ### 教程
 
 - [llama3-from-scratch](https://github.com/naklecha/llama3-from-scratch)
+- [Transformers快速入门](https://transformers.run/)
 - [动手学大模型](https://sjtullm.gitbook.io/dive-into-llms)
 - [大规模语言模型：从理论到实践](https://intro-llm.github.io/)
 - [开源大模型食用指南](https://github.com/datawhalechina/self-llm)
