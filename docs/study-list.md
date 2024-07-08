@@ -22,7 +22,15 @@
 
 ### 源码学习
 
+- [nanoGPT](https://github.com/karpathy/nanoGPT)
 - [miniGPT](https://github.com/karpathy/minGPT)
+- [TinyLlama](https://github.com/jzhang38/TinyLlama)
+- [pythia](https://github.com/EleutherAI/pythia)
+- [OLMo](https://github.com/allenai/OLMo)
+- [Qwen1.5](https://github.com/QwenLM/Qwen1.5)
+- [llama-from-scratch](https://github.com/bkitano/llama-from-scratch)
+
+
 
 ### 视频
 
