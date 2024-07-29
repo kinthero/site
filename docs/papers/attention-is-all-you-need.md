@@ -8,7 +8,7 @@ Transformer 来自于一篇论文 Attention Is All You Need。Transformer 由两
 
 如图
 
-![transformers structure](../../assets/transformer.png)
+![transformers structure](../assets/transformer.png)
 
 ## 什么是注意力？
 
@@ -28,8 +28,10 @@ QK 乘积表示的就是 token 之间的接近关系，一行的每个元素都�
 多头注意力就是将维度拆分，计算多个注意力头，然后将注意力头合并，公式为：
 
 $$
-MultiHead(Q,K,V)=Concat(head_1,...,head_h)W^0 \\
-head_i=Attention(QW_i^Q,KW_i^K,VW_i^V)
+\begin{align}
+MultiHead(Q,K,V)&=Concat(head_1,...,head_h)W^0 \\
+head_i&=Attention(QW_i^Q,KW_i^K,VW_i^V)
+\end{align}
 $$
 
 论文中的维度是$d_model=512$，拆分成八个头，也就是$h=8$,这里的$d_k=d_v=d_model/h=64$
@@ -51,8 +53,10 @@ $$FFN(x)=max(0, W_1+b_1)W_2+b_2$$
 我们的输出是 tokens 在 embedding 之后的 embeddings 矩阵，但是 embeddings 矩阵无法表示相同 token 之间位置的区别，所以会为它加上一个同样大小的矩阵，这个矩阵就是位置编码后的矩阵，公式为：
 
 $$
-PE_{(pos,2i)} = sin(pos/10000^{2i/d_{model}})\\
-PE_{(pos,2i+1)} = cos(pos/10000^{2i/d_{model}})
+\begin{align}
+PE_{(pos,2i)} &= sin(pos/10000^{2i/d_{model}})\\
+PE_{(pos,2i+1)} &= cos(pos/10000^{2i/d_{model}})
+\end{align}
 $$
 
 公式原理就不太懂
