@@ -163,7 +163,7 @@ nav:
     - docker安装sqlserver: tools/docker-install-sqlserver.md
     - docker安装sqlserver简易版: tools/docker-install-sqlserver-easy.md
     - docker安装hadoop集群: tools/docker-install-hadoop.md
-  - 论文学习:
-    - attention is all you need: papers/attention-is-all-you-need.md
+  - llm:
+    - transformer: llm/transformer.md
   - Blog:
     - blog/index.md
