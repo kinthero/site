@@ -35,4 +35,6 @@
 ### 视频
 
 - [learn.deeplearning.ai](https://learn.deeplearning.ai/)
+- [fast.ai](https://www.fast.ai/)
+- [huggingface](https://www.hf.co/course)
 
