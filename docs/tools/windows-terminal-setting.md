@@ -6,9 +6,27 @@
 winget install --id Microsoft.WindowsTerminal -e
 ```
 
+## 打开配置文件
+
+配置都放在 `settings` 中，可以使用快捷键 `ctrl+,` 打开设置，然后点击左下角打开 json 文件。
+
+## 一些基础配置
+
+```json
+"centerOnLaunch": true,
+"launchMode": "focus",
+"confirmCloseAllTabs": false,
+"multiLinePasteWarning": false,
+"copyOnSelect": false,
+"showTabsInTitlebar": true,
+"showTerminalTitleInTitlebar": true,
+"tabWidthMode": "equal",
+"useAcrylicInTabRow": true
+```
+
 ## 快捷键配置
 
-快捷键的配置都放在`settings`中，可以使用快捷键`ctrl+,`打开设置，然后点击左下角打开 json 文件。快捷键都是在`actions`中配置的。
+快捷键都是在 `actions` 中配置的。
 
 ```json
 "actions":
