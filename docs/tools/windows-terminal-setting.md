@@ -10,7 +10,7 @@ winget install --id Microsoft.WindowsTerminal -e
 
 配置都放在 `settings` 中，可以使用快捷键 `ctrl+,` 打开设置，然后点击左下角打开 json 文件。
 
-## 一些基础配置
+## 基础配置
 
 ```json
 "centerOnLaunch": true,
