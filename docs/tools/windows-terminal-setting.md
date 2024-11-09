@@ -19,14 +19,20 @@ winget install --id Microsoft.WindowsTerminal -e
 
 窗口尺寸快捷键，添加之后可以实现
 
-- `ctrl+enter` 切换显示标签页
 - `alt+enter` 切换全屏模式
+- `ctrl+enter` 切换显示标签页
+- `shift+enter` 切换最大化窗格
 
 ```json
 {
     "command": "toggleFocusMode",
     "id": "User.toggleFocusMode",
     "keys": "ctrl+enter"
+},
+{
+    "command": "togglePaneZoom",
+    "id": "User.togglePaneZoom",
+    "keys": "shift+enter"
 },
 ```
 
@@ -46,7 +52,6 @@ winget install --id Microsoft.WindowsTerminal -e
 
 窗格快捷键
 
-- `alt+o` 切换最大化窗格
 - `ctrl+d` 关闭窗格
 - `alt+h` 切换到左方窗格
 - `alt+l` 切换到右方窗格
@@ -54,11 +59,6 @@ winget install --id Microsoft.WindowsTerminal -e
 - `alt+k` 切换到上方窗格
 
 ```json
-{
-    "command": "togglePaneZoom",
-    "id": "User.togglePaneZoom",
-    "keys": "alt+o"
-},
 {
     "command": "closePane",
     "keys": "ctrl+d"
