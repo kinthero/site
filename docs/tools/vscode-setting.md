@@ -1,9 +1,11 @@
-本文主要涉及vscode的vim配置和python配置
+# vscode 配置
 
-完整的vim配置
+本文主要涉及 vscode 的 vim 配置和 python 配置
+
+完整的 vim 配置
 
 ??? note "settings.json"
-    ```json
+`json
       // vim settings
       "vim.leader": "<Space>",
       "vim.useSystemClipboard": true,
@@ -93,10 +95,9 @@
           "commands": ["workbench.action.gotoSymbol"]
         }
       ],
-    ```
+    `
 
-
-### python配置
+### python 配置
 
 需要安装的插件：
 
@@ -111,12 +112,12 @@
 - 输入`ext install 插件名`
 - 回车
 
-打开vscode的`settings.json`文件，可以直接输入`ctrl+shift+p`查找，添加下面的配置
+打开 vscode 的`settings.json`文件，可以直接输入`ctrl+shift+p`查找，添加下面的配置
 实现的功能是：
 
-- 使用black-formatter进行格式化，也可以设置为autopep8
+- 使用 black-formatter 进行格式化，也可以设置为 autopep8
 - 代码保存的时候自动格式化
-- 基于ruff实现一些修复
+- 基于 ruff 实现一些修复
 
 ```json
 "[python]": {
@@ -128,7 +129,7 @@
 },
 ```
 
-### vim配置
+### vim 配置
 
 需要安装的插件`vscodevim.vim`有需要可以安装`vintharas.learn-vim`学习一下。
 
@@ -142,11 +143,11 @@
 },
 ```
 
-vim中有一些插件功能可以开启，在`settings.json`开启的部分功能如下：
+vim 中有一些插件功能可以开启，在`settings.json`开启的部分功能如下：
 
-- 将leader按键设为空格，默认为`\`
+- 将 leader 按键设为空格，默认为`\`
 - 使用系统剪切板
-- 解决jk移动的时候折叠的代码自动展开的问题
+- 解决 jk 移动的时候折叠的代码自动展开的问题
 - 查找结果保持高亮
 
 ```json
@@ -155,12 +156,14 @@ vim中有一些插件功能可以开启，在`settings.json`开启的部分功�
 "vim.foldfix": true,
 "vim.hlsearch": true,
 ```
-vim的案件配置有几种
+
+vim 的案件配置有几种
+
 - vim.insertModeKeyBindings - 插入模式按键绑定
 - vim.normalModeKeyBindings - 普通模式按键绑定
 - vim.visualModeKeyBindings - 视图模式按键绑定
 - vim.operatorPendingModeKeyBindings - 算子模式按键绑定
-以及非递归形式，就是防止i改成j，j改成i这种情况后出现ijijij递归执行的情况
+  以及非递归形式，就是防止 i 改成 j，j 改成 i 这种情况后出现 ijijij 递归执行的情况
 - vim.insertModeKeyBindingsNonRecursive
 - normalModeKeyBindingsNonRecursive
 - visualModeKeyBindingsNonRecursive
@@ -181,6 +184,7 @@ vim的案件配置有几种
 	}
 ],
 ```
+
 后面的配置都是在`vim.normalModeKeyBindingsNonRecursive`设置的，
 更改一些按键习惯，让使用更加舒适
 
@@ -212,11 +216,14 @@ vim的案件配置有几种
       "commands": [":noh"]
     },
 ```
+
 文件跳转和命令面板等功能
+
 - 打开命令行
 - 打开文件
-- 打开buffer
+- 打开 buffer
 - 跳到函数
+
 ```json
     {
       // show command line
@@ -239,9 +246,12 @@ vim的案件配置有几种
       "commands": ["workbench.action.gotoSymbol"]
     }
 ```
+
 窗格跳转，实现窗格的左右跳转，因为我不用上下，
-- 命令行面板使用ctrl+j
-- 左边活动栏使用ctrl+b
+
+- 命令行面板使用 ctrl+j
+- 左边活动栏使用 ctrl+b
+
 ```json
     {
       // move to left group
@@ -254,7 +264,3 @@ vim的案件配置有几种
       "after": ["<C-w>", "l"]
     },
 ```
-
-
-
-
