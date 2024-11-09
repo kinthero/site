@@ -29,16 +29,17 @@ scoop reset python310
 经常会写很多小测试 demo，如果每次都创建一个虚拟环境的话，会浪费很多磁盘空间。所以还是有个 conda 环境好点。最近发现一个新的 conda 发行版：miniforge。比 miniconda 相对大一点，但是默认包含的包也多一点。
 从[项目地址](https://github.com/conda-forge/miniforge)下载对应的安装包进行安装就可以。
 
-然后用下面的配置加速一下 conda
-
-```shell
-conda config --set solver libmamba
-```
-
 在 windows 上安装完成了之后，会发现只有 cmd 的命令行版本，打开`Miniforge Prompt`，然后运行
 
 ```shell
 conda init powershell
+```
+
+然后用下面的配置加速一下 conda，但是好像现在默认就是 libmamba，可以不用设置可以先查看一下。
+
+```shell
+conda config --show solver
+conda config --set solver libmamba
 ```
 
 conda 环境管理
