@@ -44,7 +44,7 @@ scoop bucket rm [软件源名]
 ```shell
 scoop install 7zip git aria2 sudo `
 vim neovim emacs helix `
-starship fd ripgrep fzf bat eza zoxide clink wget which `
+starship fd ripgrep fzf bat eza zoxide clink wget which bottom `
 alacritty wezterm cmder pwsh nu `
 gcc nodejs make openjdk`
 obsidian logseq zotero xmind `
