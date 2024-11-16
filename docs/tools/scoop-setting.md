@@ -44,11 +44,32 @@ scoop bucket rm [软件源名]
 ```shell
 scoop install 7zip git aria2 sudo `
 vim neovim emacs helix `
-starship fd ripgrep fzf bat eza zoxide clink wget which bottom `
+starship fd ripgrep fzf bat eza zoxide clink wget curl which bottom touch `
 alacritty wezterm cmder pwsh nu `
-gcc nodejs make openjdk`
+gcc nodejs make openjdk rustup `
 obsidian logseq zotero xmind `
-sumatrapdf potplayer vlc screentogif rufus qbittorrent trafficmonitor
+sumatrapdf potplayer vlc screentogif rufus qbittorrent trafficmonitor fiddler \
+localsend
+```
+
+## scoop search 加速
+
+有两个方法加速查找软件，第一种是使用 sqlite 缓存
+
+```shell
+scoop config use_sqlite_cache true
+```
+
+还有一个办法是使用 scoop-search，安装 scoop-search
+
+```shell
+scoop install scoop-search
+```
+
+然后在 profile 中添加
+
+```shell
+Invoke-Expression (&scoop-search --hook)
 ```
 
 ## 小坑
