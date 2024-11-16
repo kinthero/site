@@ -14,7 +14,7 @@ scp .\mihomo-linux-arm64-alpha-xx.deb kilos@192.168.101.xx:~/
 ### 安装文件
 
 ```shell
-sudo dpkg -i mihomo-linux-arm64-alpha-de19f92.deb
+sudo dpkg -i mihomo-linux-arm64-alpha-xx.deb
 ```
 
 ### 配置文件
