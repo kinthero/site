@@ -158,5 +158,4 @@ nav:
   - python: python/
   - 软件配置: tools/
   - llm: llm/
-  - Blog:
-    - blog/index.md
+  - Blog: blog/
