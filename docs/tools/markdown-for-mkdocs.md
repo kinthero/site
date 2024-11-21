@@ -1,100 +1,100 @@
-使用警告语法
- 
-??? note "自定义标题"
+# Markdown 写作语法指南
 
-    - 内容行前面有四个空格
-    - 可以不使用双引号及其内部内容，标题默认为`note`等警告语
-    - 需要修改标题`note`为其他内容，直接修改双引号中的内容
-    - 如果双引号中没有内容，则没有标题
-    - `!!!`开头不可折叠，改成`???`就是可以折叠块
-    - `???+`表示默认打开
-    - `!!! info inline end "title"`行内右侧块
-    - `!!! info inline "Lorem ipsum"`行内左侧块
-    - 可选的类型
-        - note
-        - abstract
-        - info
-        - tip
-        - success
-        - question
-        - warning
-        - failure
-        - danger
-        - bug
-        - example
-        - quote
+markdown 有很多的方言，mkdocs 支持了基本的 markdown 语法，而`material for mkdocs` 支持更多的语法。基于语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊用法。
 
-## 引用
+## 实现折叠效果
 
-基本引用
+代码
 
-Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
-{ .annotate }
+```html
+<details>
+  <summary>点击查看 python 代码</summary>
 
-1.  :man_raising_hand: I'm an annotation! I can contain `code`, __formatted
-    text__, images, ... basically anything that can be expressed in Markdown.
+  ```python
+  def greet(name):
+    return f"hello {name}"
 
-嵌套引用
+  print(greet("world))
+  ```
 
-Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
-{ .annotate }
-
-1.  :man_raising_hand: I'm an annotation! (1)
-    { .annotate }
-
-    1.  :woman_raising_hand: I'm an annotation as well!
-
-在警告中使用
-
-!!! note annotate "Phasellus posuere in sem ut cursus (1)"
-
-    Lorem ipsum dolor sit amet, (2) consectetur adipiscing elit. Nulla et
-    euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo
-    purus auctor massa, nec semper lorem quam in massa.
-
-1.  :man_raising_hand: I'm an annotation!
-2.  :woman_raising_hand: I'm an annotation as well!
-
-在tab中使用
-
-=== "Tab 1"
-
-    Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
-    { .annotate }
-
-    1.  :man_raising_hand: I'm an annotation!
-
-=== "Tab 2"
-
-    Phasellus posuere in sem ut cursus (1)
-    { .annotate }
-
-    1.  :woman_raising_hand: I'm an annotation as well!
-
-## 按钮
-
-添加按钮
-
-[Subscribe to our newsletter](#){ .md-button }
-
-填充按钮
-
-[Subscribe to our newsletter](#){ .md-button .md-button--primary }
-
-有图标的按钮
-
-[Send :fontawesome-solid-paper-plane:](#){ .md-button }
-
-## 代码
-
-添加复制按钮
-
-``` py
-import tensorflow as tf
+</details>
 ```
-添加标题
 
-``` py title="bubble_sort.py"
+效果
+
+<details>
+  <summary>点击查看 python 代码</summary>
+
+  ```python
+  def greet(name):
+    return f"hello {name}"
+
+  print(greet("world))
+  ```
+
+</details>
+
+如果需要展开，在 `details` 标签中添加 `open` 属性即可。
+
+```html
+<details open>
+  <summary>点击查看 python 代码</summary>
+
+  ```python
+  def greet(name):
+    return f"hello {name}"
+
+  print(greet("world))
+  ```
+
+</details>
+```
+
+这个代码在 `material for mkdocs` 中的渲染效果是 `Admonition` 的效果
+
+## html 标签波浪线问题
+
+因为 markdown 的规范中默认是不应该有 `html` 标签，但是如果要在 `markdown` 中使用 `html` 标签，需要在项目根目录下创建一个`.markdownlint.json` 文件。
+
+```json
+{
+  "MD033": false
+}
+```
+
+## 使用脚注替换引用
+
+代码
+
+```markdown
+这是一个[脚注][1] 效果
+
+[1]: https://www.example.com
+```
+
+效果
+
+这是一个[脚注][1] 效果
+
+[1]: https://www.example.com
+
+## 给代码添加标题
+
+代码
+
+~~~markdown
+```py title="bubble_sort.py"
+def bubble_sort(items):
+    for i in range(len(items)):
+        for j in range(len(items) - 1 - i):
+            if items[j] > items[j + 1]:
+                items[j], items[j + 1] = items[j + 1], items[j]
+```
+~~~
+
+这个效果只能在 `material for mkdocs` 中使用。
+
+```py title="bubble_sort.py"
 def bubble_sort(items):
     for i in range(len(items)):
         for j in range(len(items) - 1 - i):
@@ -102,28 +102,22 @@ def bubble_sort(items):
                 items[j], items[j + 1] = items[j + 1], items[j]
 ```
 
-添加引用
+---
 
-``` yaml
-theme:
-  features:
-    - content.code.annotate # (1)
-```
-
-1.  :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
-    text__, images, ... basically anything that can be written in Markdown.
+1. :man_raising_hand: I'm a code annotation! I can contain `code`, **formatted
+    text**, images, ... basically anything that can be written in Markdown.
 
 剥离注释
 
-``` yaml
+```yaml
 # (1)!
 ```
 
-1.  Look ma, less line noise!
+1. Look ma, less line noise!
 
 添加行号
 
-``` py linenums="1"
+```py linenums="1"
 def bubble_sort(items):
     for i in range(len(items)):
         for j in range(len(items) - 1 - i):
@@ -133,7 +127,7 @@ def bubble_sort(items):
 
 高亮行
 
-``` py hl_lines="2 3"
+```py hl_lines="2 3"
 def bubble_sort(items):
     for i in range(len(items)):
         for j in range(len(items) - 1 - i):
@@ -185,7 +179,7 @@ def bubble_sort(items):
     2. Donec vitae suscipit est
     3. Nulla tempor lobortis orci
 
-嵌入式tab
+嵌入式 tab
 
 ???+ example
 
@@ -204,41 +198,42 @@ def bubble_sort(items):
         2. Donec vitae suscipit est
         3. Nulla tempor lobortis orci
         ```
+
 ## 表格
 
-| Method      | Description                          |
-| ----------- | ------------------------------------ |
-| `GET`       | :material-check:     Fetch resource  |
-| `PUT`       | :material-check-all: Update resource |
-| `DELETE`    | :material-close:     Delete resource |
+| Method   | Description                          |
+| -------- | ------------------------------------ |
+| `GET`    | :material-check: Fetch resource      |
+| `PUT`    | :material-check-all: Update resource |
+| `DELETE` | :material-close: Delete resource     |
 
 对齐列
 
 === "Left"
 
-    | Method      | Description                          |
-    | :---------- | :----------------------------------- |
-    | `GET`       | :material-check:     Fetch resource  |
-    | `PUT`       | :material-check-all: Update resource |
-    | `DELETE`    | :material-close:     Delete resource |
+    | Method   | Description                          |
+    | :------- | :----------------------------------- |
+    | `GET`    | :material-check:     Fetch resource  |
+    | `PUT`    | :material-check-all: Update resource |
+    | `DELETE` | :material-close:     Delete resource |
 
 === "Center"
 
-    | Method      | Description                          |
-    | :---------: | :----------------------------------: |
-    | `GET`       | :material-check:     Fetch resource  |
-    | `PUT`       | :material-check-all: Update resource |
-    | `DELETE`    | :material-close:     Delete resource |    
+    |  Method  |             Description              |
+    | :------: | :----------------------------------: |
+    |  `GET`   | :material-check:     Fetch resource  |
+    |  `PUT`   | :material-check-all: Update resource |
+    | `DELETE` | :material-close:     Delete resource |
 
 === "Right"
-    
-    | Method      | Description                          |
-    | ----------: | -----------------------------------: |
-    | `GET`       | :material-check:     Fetch resource  |
-    | `PUT`       | :material-check-all: Update resource |
-    | `DELETE`    | :material-close:     Delete resource |
-    
-导入csv文件
+
+    |   Method |                          Description |
+    | -------: | -----------------------------------: |
+    |    `GET` |  :material-check:     Fetch resource |
+    |    `PUT` | :material-check-all: Update resource |
+    | `DELETE` | :material-close:     Delete resource |
+
+导入 csv 文件
 
 ...
 
@@ -250,7 +245,7 @@ def bubble_sort(items):
 
 flowchat
 
-``` mermaid
+```mermaid
 graph LR
   A[Start] --> B{Error?};
   B -->|Yes| C[Hmm...];
@@ -261,7 +256,7 @@ graph LR
 
 序列图
 
-``` mermaid
+```mermaid
 sequenceDiagram
   autonumber
   Alice->>John: Hello John, how are you?
@@ -276,7 +271,7 @@ sequenceDiagram
 
 状态图
 
-``` mermaid
+```mermaid
 stateDiagram-v2
   state fork_state <<fork>>
     [*] --> fork_state
@@ -292,7 +287,7 @@ stateDiagram-v2
 
 类图
 
-``` mermaid
+```mermaid
 classDiagram
   Person <|-- Student
   Person <|-- Professor
@@ -317,13 +312,13 @@ classDiagram
     +int postalCode
     +String country
     -validate()
-    +outputAsLabel()  
+    +outputAsLabel()
   }
 ```
 
 实体关系图
 
-``` mermaid
+```mermaid
 erDiagram
   CUSTOMER ||--o{ ORDER : places
   ORDER ||--|{ LINE-ITEM : contains
@@ -336,7 +331,7 @@ erDiagram
 
 ## 脚注
 
-``` title="footnote"
+```title="footnote"
 Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit.[^2]
 
 [^1]: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -375,8 +370,6 @@ tags on separate lines and adding new lines between the tags and the content.
 
 ++ctrl+alt+del++
 
-
-
 ## 图像
 
     ``` title = "image"
@@ -385,15 +378,12 @@ tags on separate lines and adding new lines between the tags and the content.
 
     ```
 
-
-
 添加图像名称
 
 <figure markdown>
   ![Image title](https://dummyimage.com/600x400/){ width="300" }
   <figcaption>Image caption</figcaption>
 </figure>
-
 
 ## 公式
 
@@ -403,8 +393,8 @@ $$
 
 行内公式
 
-The homomorphism $f$ is injective if and only if its kernel is only the 
-singleton set $e_G$, because otherwise $\exists a,b\in G$ with $a\neq b$ such 
+The homomorphism $f$ is injective if and only if its kernel is only the
+singleton set $e_G$, because otherwise $\exists a,b\in G$ with $a\neq b$ such
 that $f(a)=f(b)$.
 
 ## tooltips
@@ -415,7 +405,7 @@ that $f(a)=f(b)$.
 
 [Hover me][example]
 
-  [example]: https://example.com "I'm a tooltip!"
+[example]: https://example.com "I'm a tooltip!"
 
 添加到图标
 
@@ -425,5 +415,5 @@ that $f(a)=f(b)$.
 
 The HTML specification is maintained by the W3C.
 
-*[HTML]: Hyper Text Markup Language
-*[W3C]: World Wide Web Consortium
+_[HTML]: Hyper Text Markup Language
+_[W3C]: World Wide Web Consortium
