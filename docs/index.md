@@ -1,4 +1,4 @@
-# Welcome to kinther's blog
+# Welcome to kinther's site
 
 ---
 
