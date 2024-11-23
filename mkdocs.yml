@@ -154,7 +154,8 @@ extra_javascript:
 nav:
   - Home: 
     - index.md
-    - 学习清单: study-list.md
+    - TODO: todo.md
+    - 学习清单: study.md
     - AI项目搜集: ai-project.md
   - python: python/
   - 软件配置: tools/

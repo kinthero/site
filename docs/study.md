@@ -5,12 +5,12 @@
 ### 教程
 
 - [llama3-from-scratch](https://github.com/naklecha/llama3-from-scratch)
-- [Transformers快速入门](https://transformers.run/)
+- [Transformers 快速入门](https://transformers.run/)
 - [动手学大模型](https://sjtullm.gitbook.io/dive-into-llms)
 - [大规模语言模型：从理论到实践](https://intro-llm.github.io/)
 - [开源大模型食用指南](https://github.com/datawhalechina/self-llm)
 - [面向开发者的大模型手册](https://datawhalechina.github.io/llm-cookbook/#/)
-- [微软AI课程](https://microsoft.github.io/generative-ai-for-beginners/#/)
+- [微软 AI 课程](https://microsoft.github.io/generative-ai-for-beginners/#/)
 - [Builds a Large Language Model From Scratch](https://github.com/rasbt/LLMs-from-scratch)
 
 ### 文档
@@ -30,11 +30,8 @@
 - [Qwen1.5](https://github.com/QwenLM/Qwen1.5)
 - [llama-from-scratch](https://github.com/bkitano/llama-from-scratch)
 
-
-
 ### 视频
 
 - [learn.deeplearning.ai](https://learn.deeplearning.ai/)
 - [fast.ai](https://www.fast.ai/)
 - [huggingface](https://www.hf.co/course)
-
