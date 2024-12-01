@@ -98,7 +98,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-
 ## 安装常用软件
 
 ```shell
-sudo nala install flameshot gnome-tweaks eza ripgrep
+sudo nala install flameshot gnome-tweaks eza ripgrep nodejs npm
 ```
 
 安装neovim

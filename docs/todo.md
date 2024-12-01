@@ -9,6 +9,10 @@
 
 - [ ] [real python](https://realpython.com/) 教程
 
+## AI
+
+- [ ] [tiny-universe](https://github.com/datawhalechina/tiny-universe)
+
 ## 学习
 
 - [ ] postgresql 基础
