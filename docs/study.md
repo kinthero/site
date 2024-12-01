@@ -35,3 +35,8 @@
 - [learn.deeplearning.ai](https://learn.deeplearning.ai/)
 - [fast.ai](https://www.fast.ai/)
 - [huggingface](https://www.hf.co/course)
+
+## 学习网站
+
+- [exercism](https://exercism.org/)
+- [codecrafters](https://app.codecrafters.io/catalog)
