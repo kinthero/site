@@ -7,6 +7,9 @@
 ```bash
 # 下载词库
 git clone https://github.com/liuhuanyong/DomainWordsDict.git
+# 安装dotnet
+sudo apt-get update && \
+  sudo apt-get install -y aspnetcore-runtime-8.0
 # 转换词库
 dotnet ImeWlConverterCmd.dll -i:word ./DomainWordsDict/data/*.txt -o:libpy ./output.txt
 ```
