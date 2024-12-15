@@ -12,6 +12,7 @@
 - [面向开发者的大模型手册](https://datawhalechina.github.io/llm-cookbook/#/)
 - [微软 AI 课程](https://microsoft.github.io/generative-ai-for-beginners/#/)
 - [Builds a Large Language Model From Scratch](https://github.com/rasbt/LLMs-from-scratch)
+- [LLMs 入门实战系列](https://github.com/km1994/LLMsNineStoryDemonTower)
 
 ### 文档
 
