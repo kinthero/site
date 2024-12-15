@@ -1,0 +1,14 @@
+# 深蓝词库使用
+
+这里在ubuntu下为自带的输入法添加词库。
+
+首先，下载深蓝转换器，[地址](https://github.com/studyzy/imewlconverter/releases)，然后进入目录。
+
+```bash
+# 下载词库
+git clone https://github.com/liuhuanyong/DomainWordsDict.git
+# 转换词库
+dotnet ImeWlConverterCmd.dll -i:word ./DomainWordsDict/data/*.txt -o:libpy ./output.txt
+```
+
+然后在自带输入法的首选项中，找到用户数据，用户词典中找到导入这个output.txt。
