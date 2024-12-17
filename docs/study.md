@@ -13,6 +13,7 @@
 - [微软 AI 课程](https://microsoft.github.io/generative-ai-for-beginners/#/)
 - [Builds a Large Language Model From Scratch](https://github.com/rasbt/LLMs-from-scratch)
 - [LLMs 入门实战系列](https://github.com/km1994/LLMsNineStoryDemonTower)
+- [smol-course | 微调 | 对齐](https://github.com/huggingface/smol-course)
 
 ### 文档
 
