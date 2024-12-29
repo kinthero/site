@@ -1,3 +1,1 @@
-# this is my vscode setting
-
-hello
+# vscode 配置
