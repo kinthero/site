@@ -18,7 +18,7 @@ exit
 ## prefix 键与帮助
 
 tmux 使用大量快捷键操作窗口和pane，prefix 键是所有快捷键唤醒按键。帮助的快捷键是 <kbd>Ctrl+b ?</kbd>。
-如果向单独查看某个快捷键的效果，可以使用 <kbd>Ctrl+b /</kbd>，然后输入快捷键，这个时候不需要再输入 prefix 键。
+如果想单独查看某个快捷键的效果，可以使用 <kbd>Ctrl+b /</kbd>，然后输入快捷键，这个时候不需要再输入 prefix 键。
 如果想要输入 <kbd>Ctrl+b</kbd> 按键的话，输入两次就可以了。
 
 ## 会话(session)命令
@@ -52,6 +52,6 @@ tmux 使用大量快捷键操作窗口和pane，prefix 键是所有快捷键唤�
 ## 其他
 
 - <kbd>:</kbd> 用来输入 tmux 的命令，实现其他快捷键的功能
-- <kbd>i</kbd> 查看窗口kjk信息
+- <kbd>i</kbd> 查看窗口信息
 - <kbd>t</kbd> 显示时间
 - <kbd>r</kbd> 重绘窗口
