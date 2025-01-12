@@ -172,4 +172,5 @@ nav:
   - python: python/
   - 软件配置: tools/
   - llm: llm/
+  - 想法: idea/
   - Blog: blog/
