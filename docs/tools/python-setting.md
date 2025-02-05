@@ -96,6 +96,20 @@ New-Alias -Name dav -Value 'deactivate'
 
 之后，`av`启动虚拟环境，`dav`退出虚拟环境
 
+uv 使用清华镜像
+
+临时使用可以这样子
+
+```shell
+ux add --default-index https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple requests
+```
+
+也可以设置环境变量，添加到 `.bashrc` 文件中
+
+```shell
+export UV_DEFAULT_INDEX="https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+```
+
 ## 安装 python 工具
 
 有一些 python 写的工具需要使用，比如 ruff，mypy 等，或者是 UV，这里 使用 pipx 进行安装。pipx 安装后每个程序都是独立的虚拟环境中运行，很好的实现隔离，方便调用
