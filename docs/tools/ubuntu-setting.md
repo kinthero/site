@@ -106,3 +106,11 @@ sudo nala install flameshot gnome-tweaks eza ripgrep nodejs npm
 ```shell
 sudo snap install --beta nvim --classic
 ```
+
+安装 grub-customer，添加不上ppa的时候使用 -E 参数来使用环境变量中设置的系统代理。
+
+```shell
+sudo -E add-apt-repository ppa:danielrichter2007/grub-customizer
+sudo apt-get update
+sudo apt-get install grub-customizer
+```
