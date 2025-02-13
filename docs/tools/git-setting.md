@@ -15,7 +15,7 @@ git config --global --list
 ssh-keygen -t rsa -b 4096 -C "email"
 ```
 
-复制公钥，粘贴到github -> settings -> SSH and GPG keys -> New SSH key
+复制公钥，粘贴到 github -> settings -> SSH and GPG keys -> New SSH key
 
 ```shell
 cat .ssh/id_rsa.pub
