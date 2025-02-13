@@ -1,5 +1,32 @@
 # git 配置
 
+## 连接 github
+
+设置用户信息
+```shell
+git config --global user.name "name"
+git config --global user.email "email"
+git config --global --list
+```
+
+生成密钥
+
+```shell
+ssh-keygen -t rsa -b 4096 -C "email"
+```
+
+复制公钥，粘贴到github -> settings -> SSH and GPG keys -> New SSH key
+
+```shell
+cat .ssh/id_rsa.pub
+```
+
+测试是否可以连接
+
+```shell
+ssh -T git@github.com
+```
+
 ## git 的一些别名
 
 使用命令`git config --global -e`编辑 git 配置文件
