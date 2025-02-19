@@ -28,7 +28,7 @@ org 是一个大纲视图，大纲允许以分层结构组织文档。可以通�
 ### 结构编辑快捷键
 
 - <kbd>M-RET</kbd> 插入当前级别相同的新标题或者列表行
-- <kbd>M-S-RET</kbd> 插入当前级别相同的TODO标题或者列表行
+- <kbd>M-S-RET</kbd> 插入当前级别相同的 TODO 标题或者列表行
 - <kbd>TAB</kbd> 在一个新的条目中，可以在合理的级别之间循环，也就是切换标题级别或者列表行缩进
 - <kbd>M-LEFT</kbd> 将当前标题提升一个级别
 - <kbd>M-RIGHT</kbd> 将当前标题下降一个级别
@@ -88,7 +88,7 @@ org 是一个大纲视图，大纲允许以分层结构组织文档。可以通�
 
 ### 快捷键
 
-- <kbd>C-c |</kbd> 将活动区域转换成表，如果没有活动区域，创建一个空的org表
+- <kbd>C-c |</kbd> 将活动区域转换成表，如果没有活动区域，创建一个空的 org 表
 - <kbd>C-c C-c</kbd> 重新对齐表格
 - <kbd>TAB</kbd> 重新对齐表格，移动到下一个字段，如果有必要，创建新行
 - <kbd>S-TAB</kbd> 重新对齐表格，移动到上一个字段
@@ -139,8 +139,8 @@ org 是一个大纲视图，大纲允许以分层结构组织文档。可以通�
 - <kbd>C-c C-t</kbd> 切换 TODO 状态
 - <kbd>S-LEFT</kbd> 切换 TODO 状态
 - <kbd>S-RIGHT</kbd> 切换 TODO 状态
-- <kbd>C-c / t</kbd> 查看TODO 稀疏树
-- <kbd>org-agenda t</kbd> 显示全局TODO 列表
+- <kbd>C-c / t</kbd> 查看 TODO 稀疏树
+- <kbd>org-agenda t</kbd> 显示全局 TODO 列表
 - <kbd>S-M-RET</kbd> 插入新的 TODO
 
 把 TODO 设置多个状态

@@ -19,7 +19,7 @@ rime 有两种配置文件需要注意。
 - `*.schema.yaml`: 这是输入法文件，可以理解成默认配置
 - `*.custom.yaml`，这是配置文件，用来覆盖默认配置，覆盖的时候一定要有 patch 开头表示替换
 
-这里我需要配置小鹤双拼输入法，默认的配置文件是 `double_pinyin_flypy.schema.yaml`，现在创建一个文件用来修改默认配置: `double_pinyin_flypy.custom.yaml`。
+这里我需要配置小鹤双拼输入法，默认的配置文件是 `double_pinyin_flypy.schema.yaml`，现在创建一个文件用来修改默认配置：`double_pinyin_flypy.custom.yaml`。
 
 ```yaml
 patch:

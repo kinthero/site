@@ -101,13 +101,13 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-
 sudo nala install flameshot gnome-tweaks eza ripgrep nodejs npm
 ```
 
-安装neovim
+安装 neovim
 
 ```shell
 sudo snap install --beta nvim --classic
 ```
 
-安装 grub-customer，添加不上ppa的时候使用 -E 参数来使用环境变量中设置的系统代理。
+安装 grub-customer，添加不上 ppa 的时候使用 -E 参数来使用环境变量中设置的系统代理。
 
 ```shell
 sudo -E add-apt-repository ppa:danielrichter2007/grub-customizer

@@ -17,13 +17,13 @@ exit
 
 ## prefix 键与帮助
 
-tmux 使用大量快捷键操作窗口和pane，prefix 键是所有快捷键唤醒按键。帮助的快捷键是 <kbd>Ctrl+b ?</kbd>。
+tmux 使用大量快捷键操作窗口和 pane，prefix 键是所有快捷键唤醒按键。帮助的快捷键是 <kbd>Ctrl+b ?</kbd>。
 如果想单独查看某个快捷键的效果，可以使用 <kbd>Ctrl+b /</kbd>，然后输入快捷键，这个时候不需要再输入 prefix 键。
 如果想要输入 <kbd>Ctrl+b</kbd> 按键的话，输入两次就可以了。
 
-## 会话(session)命令
+## 会话 (session) 命令
 
-使用 <kbd>d</kbd> 分离会话，也就是暂时退出了tmux，但是会话还是存在的。这个时候可以直接 `tmux attach` 重新连接上会话
+使用 <kbd>d</kbd> 分离会话，也就是暂时退出了 tmux，但是会话还是存在的。这个时候可以直接 `tmux attach` 重新连接上会话
 
 ## 窗口命令
 
@@ -36,7 +36,7 @@ tmux 使用大量快捷键操作窗口和pane，prefix 键是所有快捷键唤�
 - <kbd>,</kbd> 重命令当前窗口
 - <kbd>l</kbd> 上一个打开的窗口
 
-## 窗格(pane)命令
+## 窗格 (pane) 命令
 
 - <kbd>%</kbd> 左右拆分窗格
 - <kbd>"</kbd> 上下拆分窗格

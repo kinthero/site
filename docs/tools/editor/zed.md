@@ -15,7 +15,7 @@ curl -f https://zed.dev/install.sh | sh
 Zed 感觉开箱即用，甚至直接可以让我使用 vim Mode，也可以配置按键风格，我就选择 vscode 看看。
 主题也是一开始就可以设置的。
 第一眼的感觉是非常精简的，看起来比 vscode 最开始的界面更加精简，可以是因为菜单栏被藏起来了。
-它也类似于vscode，可以 <kbd>Ctrl-,</kbd> 开始配置设置文件，同样也是一个json文件，编辑体验和 vscode 是比较像的。
+它也类似于 vscode，可以 <kbd>Ctrl-,</kbd> 开始配置设置文件，同样也是一个 json 文件，编辑体验和 vscode 是比较像的。
 比较贴心的是它在注释里面还告诉了我们配置文件信息的[网址](https://zed.dev/docs/configuring-zed)。
 下面是我简单的配置文件。
 
@@ -54,4 +54,4 @@ Zed 感觉开箱即用，甚至直接可以让我使用 vim Mode，也可以配�
 ```
 
 Zed 默认有很多好用的功能，比如保存的时候自动格式化之类的。
-还有REPL，看起来听不错的。
+还有 REPL，看起来听不错的。

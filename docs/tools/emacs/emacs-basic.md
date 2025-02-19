@@ -4,7 +4,7 @@
 
 ### 等效按键
 
-- Meta键等效于<kbd>Alt</kbd>，如果是按住<kbd>Alt</kbd>按键，也等效于<kbd>Esc</kbd>，但是<kbd>Esc</kbd> 等效于 <kbd>C-[</kbd>
+- Meta 键等效于<kbd>Alt</kbd>，如果是按住<kbd>Alt</kbd>按键，也等效于<kbd>Esc</kbd>，但是<kbd>Esc</kbd> 等效于 <kbd>C-[</kbd>
 - <kbd>RET</kbd> 等效于 <kbd>C-m</kbd>
 - <kbd>TAB</kbd> 等效于 <kbd>C-i</kbd>
 - <kbd>C-\_</kbd> 等效于 <kbd>C-/</kbd>
