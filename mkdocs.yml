@@ -168,7 +168,7 @@ nav:
       - index.md
       - TODO: todo.md
       - 学习清单: study.md
-      - AI项目搜集: ai-project.md
+      - AI资源: ai.md
   - python: python/
   - 软件配置: tools/
   - llm: llm/
