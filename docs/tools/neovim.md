@@ -54,3 +54,6 @@ return {
 }
 ```
 
+## 其他
+
+- <kbd>Leader c m</kbd> 安装 prettier，配置格式化工具
