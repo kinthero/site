@@ -3,6 +3,7 @@
 ## 连接 github
 
 设置用户信息
+
 ```shell
 git config --global user.name "name"
 git config --global user.email "email"
@@ -38,7 +39,7 @@ ssh -T git@github.com
     editor = nvim
 
 [alias]
-    ge = git config --global -e
+    ge = config --global -e
     aa = add --all
     bv = branch -vv
     ba = branch -ra
