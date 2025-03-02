@@ -114,3 +114,68 @@ winget install --id Microsoft.WindowsTerminal -e
     "keys": "alt+l"
 },
 ```
+
+## 设置 profile
+
+```powershell
+# ================================================================
+$env:EDITOR = 'vim'
+Set-PSReadLineOption -EditMode Emacs
+
+Invoke-Expression (&scoop-search --hook)
+Invoke-Expression (&starship init powershell)
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+# ================================================================
+# 定义设置代理的函数
+function Set-Proxy {
+    param (
+        [string]$ProxyUrl = "http://127.0.0.1:7890"  # 默认代理地址
+    )
+    $env:HTTP_PROXY = $ProxyUrl
+    $env:HTTPS_PROXY = $ProxyUrl
+    Write-Host "代理已启用：$ProxyUrl"
+}
+
+# 定义取消代理的函数
+function Remove-Proxy {
+    $env:HTTP_PROXY = $null
+    $env:HTTPS_PROXY = $null
+    Write-Host "代理已禁用"
+}
+
+# 定义 proxy 函数来处理 on 和 off 参数
+function proxy {
+    param (
+        [string]$Action
+    )
+    switch ($Action) {
+        "on" {
+            Set-Proxy
+        }
+        "off" {
+            Remove-Proxy
+        }
+        default {
+            Write-Host "未知的参数：$Action"
+            Write-Host "用法：proxy on 或 proxy off"
+        }
+    }
+}
+# ================================================================
+Set-Alias -Name ls -Value "eza"
+function sn {
+    Set-Location -Path "D:/kilos/note/log"
+    Get-ChildItem . -Recurse -Attributes !Directory | Invoke-Fzf | % { vim $_  }
+}
+New-Alias -Name av -Value '.\.venv\Scripts\Activate.ps1'
+New-Alias -Name dav -Value 'deactivate'
+```
+
+## 其他
+
+使用宝可梦风格的背景
+
+```shell
+pipx install git+https://github.com/LazoCoder/Pokemon-Terminal.git
+```
