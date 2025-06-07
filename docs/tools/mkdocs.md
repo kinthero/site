@@ -1,6 +1,6 @@
 # Markdown 写作语法指南
 
-markdown 有很多的方言，mkdocs 支持了基本的 markdown 语法，而`material for mkdocs` 支持更多的语法。基于语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊用法。
+Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`material for mkdocs` 支持更多的语法。基于语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊用法。
 
 ## 实现折叠效果
 
