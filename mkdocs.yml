@@ -173,8 +173,7 @@ nav:
       - TODO: todo.md
       - 学习清单: study.md
       - AI资源: ai.md
-  - python: python/
-  - LLM: llm/
+  - skills: skills/
   - tools: tools/
   - 想法: idea/
   - Blog: blog/
