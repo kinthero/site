@@ -8,7 +8,7 @@ Transformer 来自于一篇论文 Attention Is All You Need。Transformer 由两
 
 如图
 
-![transformers structure](../assets/transformer.png)
+![transformers structure](../../assets/transformer.png)
 
 ## 什么是注意力？
 
