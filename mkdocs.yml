@@ -174,7 +174,7 @@ nav:
       - 学习清单: study.md
       - AI资源: ai.md
   - python: python/
-  - 软件配置: tools/
-  - llm: llm/
+  - LLM: llm/
+  - tools: tools/
   - 想法: idea/
   - Blog: blog/
