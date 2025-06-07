@@ -170,10 +170,8 @@ extra_javascript:
 nav:
   - Home:
       - index.md
-      - TODO: todo.md
-      - 学习清单: study.md
-      - AI资源: ai.md
+      - AI资源: resources.md
   - skills: skills/
   - tools: tools/
-  - 想法: idea/
+  - 想法: ideas/
   - Blog: blog/
