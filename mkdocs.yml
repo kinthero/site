@@ -15,6 +15,7 @@ copyright: Copyright &copy; 2024 kinther
 # Configuration
 theme:
   name: material
+  language: zh
   features:
     - announce.dismiss
     - content.action.edit
@@ -64,7 +65,6 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to system preference
-  language: zh
   icon:
     repo: fontawesome/brands/git-alt
     admonition:
@@ -81,6 +81,10 @@ theme:
       example: octicons/beaker-16
       quote: octicons/quote-16
     annotation: material/arrow-right-circle
+  font:
+    text: LXGW WenKai TC
+    code: Fira Code
+
 
 plugins:
   - blog
@@ -89,7 +93,7 @@ plugins:
       lang:
         - zh
         - en
-      jieba_dict: dict.txt
+      # jieba_dict: dict.txt
   - minify:
       minify_html: true
   - literate-nav:
