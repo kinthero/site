@@ -1,4 +1,4 @@
-# ubuntu 设置
+# Ubuntu 设置
 
 ## 更新
 
