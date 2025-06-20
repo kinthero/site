@@ -8,95 +8,184 @@
 <summary>settings.json</summary>
 
 ```json
-// vim settings
-"vim.leader": "<Space>",
-"vim.useSystemClipboard": true,
-"vim.foldfix": true,
-"vim.hlsearch": true,
-"vim.shell": "C:\\Users\\kilos\\scoop\\apps\\git\\current\\git-bash.exe",
-"vim.autoSwitchInputMethod.enable": true,
-"vim.autoSwitchInputMethod.defaultIM": "1033",
-"vim.autoSwitchInputMethod.obtainIMCmd": "C:\\Users\\kilos\\app\\im-select.exe",
-"vim.autoSwitchInputMethod.switchIMCmd": "C:\\Users\\kilos\\app\\im-select.exe {im}",
-"vim.handleKeys": {
-  "<C-k>": false,
-  "<C-b>": false,
-  "<C-j>": false,
-  "<C-s>": false
-},
-"vim.insertModeKeyBindingsNonRecursive": [
-  {
-    "before": ["j", "k"],
-    "after": ["<Esc>"]
-  }
-],
-"vim.normalModeKeyBindingsNonRecursive": [
-  // functional
-  {
-    // execute python file
-    "before": ["<leader>", "c", "e"],
-    "commands": ["python.execInDedicatedTerminal"]
+  // vim settings
+  "vim.leader": "<Space>",
+  "vim.smartRelativeLine": true,
+  "vim.useSystemClipboard": true,
+  "vim.foldfix": true,
+  "vim.hlsearch": true,
+  "vim.autoSwitchInputMethod.enable": false,
+  "vim.autoSwitchInputMethod.defaultIM": "1033",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\Users\\kilos\\app\\im-select.exe",
+  "vim.autoSwitchInputMethod.switchIMCmd": "C:\\Users\\kilos\\app\\im-select.exe {im}",
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "#a9dc7660",
+  "vim.highlightedyank.duration": 250,
+  "vim.handleKeys": {
+    "<C-k>": false,
+    "<C-b>": false,
+    "<C-j>": false,
+    "<C-z>": false,
+    "<C-s>": false,
+    "<C-v>": false
   },
-  // personal habit
-  {
-    // reundo
-    "before": ["U"],
-    "commands": ["<C-r>"],
-  },
-  {
-    // split line, correspond to J for join line
-    "before": ["K"],
-    "commands": ["lineBreakInsert"],
-    "silent": true
-  },
-  {
-    // save file
-    "before": ["<leader>", "w"],
-    "commands": ["workbench.action.files.save"]
-  },
-  {
-    // close file
-    "before": ["<leader>", "q"],
-    "commands": ["workbench.action.closeActiveEditor"]
-  },
-  {
-    // no highlight
-    "before": ["<leader>", "/"],
-    "commands": [":noh"]
-  },
-  // group control
-  {
-    // move to left group
-    "before": ["<C-h>"],
-    "after": ["<C-w>", "h"]
-  },
-  {
-    // move to right group
-    "before": ["<C-l>"],
-    "after": ["<C-w>", "l"]
-  },
-  // useful setting
-  {
-    // show command line
-    "before": ["<leader>", "p"],
-    "commands": ["workbench.action.showCommands"]
-  },
-  {
-    // go to file
-    "before": ["<leader>", "f"],
-    "commands": ["workbench.action.quickOpen"]
-  },
-  {
-    // go to buffer
-    "before": ["<leader>", "b"],
-    "commands": ["workbench.action.showAllEditors"]
-  },
-  {
-    // go to symbol
-    "before": ["<leader>", "o"],
-    "commands": ["workbench.action.gotoSymbol"]
-  }
-],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "space"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", ","],
+      "commands": ["workbench.action.showAllEditors"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.codeAction"]
+    },
+    {
+      "before": ["<leader>", "c", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "c", "s"],
+      "commands": ["editor.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "b", "d"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "t", "o"],
+      "commands": [":tabonly"]
+    },
+    {
+      "before": ["<leader>", "v", "s"],
+      "commands": ["workbench.action.editorLayoutSingle"]
+    },
+    {
+      "before": ["<leader>", "v", "l"],
+      "commands": ["workbench.action.moveEditorToRightGroup"]
+    },
+    {
+      "before": ["<leader>", "v", "h"],
+      "commands": ["workbench.action.moveEditorToLeftGroup"]
+    },
+    // UI
+    {
+      "before": ["<leader>", "u", "c"],
+      "commands": ["workbench.action.toggleCenteredLayout"]
+    },
+    {
+      "before": ["<leader>", "u", "s"],
+      "commands": ["settings.cycle.statusBar"]
+    },
+    {
+      "before": ["<leader>", "u", "b"],
+      "commands": ["settings.cycle.breadcrumbs"]
+    },
+    {
+      "before": ["<leader>", "u", "l"],
+      "commands": ["settings.cycle.lineNumbers"]
+    },
+    {
+      "before": ["<leader>", "u", "g"],
+      "commands": ["settings.cycle.glyphMargin"]
+    },
+    {
+      "before": ["<leader>", "u", "t"],
+      "commands": ["settings.cycle.showTabs"]
+    },
+    // functional
+    {
+      // execute python file
+      "before": ["<leader>", "c", "e"],
+      "commands": ["python.execInTerminal"]
+    },
+    // personal habit
+    {
+      // reundo
+      "before": ["U"],
+      "commands": ["<C-r>"]
+    },
+    {
+      // save file
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      // close file
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    // Jump
+    {
+      "before": ["g", "p", "d"],
+      "commands": ["editor.action.peekDefinition"]
+    },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["g", "p", "i"],
+      "commands": ["editor.action.peekImplementation"]
+    },
+    {
+      "before": ["g", "q"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"]
+    },
+    {
+      "before": ["g", "t"],
+      "commands": ["editor.action.goToTypeDefinition"]
+    },
+    {
+      "before": ["g", "p", "t"],
+      "commands": ["editor.action.peekTypeDefinition"]
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": ["J"],
+      "after": ["]", "m", "z", "t"]
+    },
+    {
+      "before": ["K"],
+      "after": ["[", "m", "z", "t"]
+    },
+    // group control
+    {
+      "before": ["H"],
+      "commands": [":tabp"]
+    },
+    {
+      "before": ["L"],
+      "commands": [":tabn"]
+    }
+  ],
 ```
 
 </details>
@@ -137,7 +226,7 @@
 
 需要安装的插件`vscodevim.vim`有需要可以安装`vintharas.learn-vim`学习一下。
 
-在`keybindings.json`中添加这个，输入`:`命令的时候，会在在上面以命令面板的方式显示
+在`keybindings.json`中添加这个，输入`:`命令的时候，会在在上面以命令面板的方式显示，可能有BUG，先不用。
 
 ```json
 {
@@ -180,13 +269,8 @@ vim 的案件配置有几种
 ```json
 "vim.insertModeKeyBindingsNonRecursive": [
 {
-"before": [
-  "j",
-  "k"
-],
-"after": [
-  "<ESC>"
-]
+"before": [ "j", "k" ],
+"after": [ "<ESC>" ]
 }
 ],
 ```
@@ -196,30 +280,30 @@ vim 的案件配置有几种
 
 ```json
 {
-// reundo
-"before": ["U"],
-"commands": ["<C-r>"],
+  // reundo
+  "before": ["U"],
+  "commands": ["<C-r>"],
 },
 {
-// split line, correspond to J for join line
-"before": ["K"],
-"commands": ["lineBreakInsert"],
-"silent": true
+  // split line, correspond to J for join line
+  "before": ["K"],
+  "commands": ["lineBreakInsert"],
+  "silent": true
 },
   {
-// save file
-"before": ["<leader>", "w"],
-"commands": ["workbench.action.files.save"]
+  // save file
+  "before": ["<leader>", "w"],
+  "commands": ["workbench.action.files.save"]
 },
 {
-// close file
-"before": ["<leader>", "q"],
-"commands": ["workbench.action.closeActiveEditor"]
+  // close file
+  "before": ["<leader>", "q"],
+  "commands": ["workbench.action.closeActiveEditor"]
 },
 {
-// no highlight
-"before": ["<leader>", "/"],
-"commands": [":noh"]
+  // no highlight
+  "before": ["<leader>", "/"],
+  "commands": [":noh"]
 },
 ```
 
