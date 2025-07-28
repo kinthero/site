@@ -134,7 +134,7 @@ sudo loginctl enable-linger [username]
 docker info | grep rootless
 ```
 
-设置 docker 镜像，可以在[这里](https://status.daocloud.io/status/docker)找找。root模式是 `/etc/docker/daemon.json`，rootless 模式是 `~/.config/docker/daemon.json`
+设置 docker 镜像，可以在[这里](https://status.daocloud.io/status/docker)找找。root 模式是 `/etc/docker/daemon.json`，rootless 模式是 `~/.config/docker/daemon.json`
 
 ```shell
 sudo vim /etc/docker/daemon.json

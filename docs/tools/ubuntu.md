@@ -114,3 +114,7 @@ sudo -E add-apt-repository ppa:danielrichter2007/grub-customizer
 sudo apt-get update
 sudo apt-get install grub-customizer
 ```
+
+## 配置 ulauncher
+
+修改 ulauncher 的显示宽度，`sudo vim /usr/share/ulauncher/ui/UlauncherWindow.ui`，修改`width_request`。

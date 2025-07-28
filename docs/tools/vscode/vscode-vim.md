@@ -192,7 +192,7 @@
 
 需要安装的插件`vscodevim.vim`有需要可以安装`vintharas.learn-vim`学习一下。
 
-在`keybindings.json`中添加这个，输入`:`命令的时候，会在在上面以命令面板的方式显示，可能有BUG，先不用。
+在`keybindings.json`中添加这个，输入`:`命令的时候，会在在上面以命令面板的方式显示，可能有 BUG，先不用。
 
 ```json
 {
