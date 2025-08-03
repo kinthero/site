@@ -16,7 +16,7 @@ git config --global --list
 ssh-keygen -t rsa -b 4096 -C "email"
 ```
 
-复制公钥，粘贴到 github -> settings -> SSH and GPG keys -> New SSH key
+复制公钥，粘贴到 github -> settings -> SSH and GPG keys -> New SSH key，[快速链接](https://github.com/settings/keys)
 
 ```shell
 cat .ssh/id_rsa.pub
@@ -30,7 +30,7 @@ ssh -T git@github.com
 
 ## git 的一些别名
 
-使用命令`git config --global -e`编辑 git 配置文件
+使用命令 `git config --global -e`编辑 git 配置文件
 
 ```property
 [core]

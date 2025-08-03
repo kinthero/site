@@ -20,31 +20,44 @@ lsb_release -a
 nvidia-smi
 ```
 
-## 使用 nala 替换 apt
+## 把主目录下文件夹改成英文
 
-```shell
-sudo apt install nala
+```bash
+export LANG=en_US
+xdg-user-dirs-gtk-update
+# click update names
+export LANG=zh_CH
 ```
 
-使用方法
+## ulauncher
 
-```shell
-# 安装软件
-sudo nala install neofetch htop
-# 切换镜像源，可以选择前10个使用
-sudo nala fetch
+### 修改ulauncher的宽度
+
+编辑文件
+
+```bash
+sudo vim /usr/share/ulauncher/ui/UlauncherWindow.ui
 ```
 
-## 使用 flatpak
+修改 `width_request`
 
-~~删除 snap, [参考](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0FFSE9yZEY2R1RFWDBjdHBTVTNLSGVoU3FRd3xBQ3Jtc0tsMEFtaUpjbExwcVYtZWktSVc1VFZ6eE5Id3laVmVnT1VnUmthR3AyYl9HLVdzRDMtUzFaLWk1M090cUk5Z2xCUG41MGxqMkc2bThwMmtFRVF1LXV1dFkxbERzRjJiclU0MXp3Znh1YU45MEpBRFRSMA&q=https%3A%2F%2Fkskroyal.com%2Fremove-snap-packages-from-ubuntu%2F&v=vLm2EHIaxOo)~~
+### 修改ulauncher主题
 
-安装 [flatpapk](https://flatpak.org/setup/Ubuntu)
+下载安装catppuccin主题
 
-```shell
-sudo apt install flatpak
-sudo apt install gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```bash
+python3 <(curl https://raw.githubusercontent.com/catppuccin/ulauncher/main/install.py -fsSL)
+```
+
+在设置中切换主题
+
+
+## emacs
+
+### 安装 emacs
+
+```bash
+sudo snap install emacs --classic
 ```
 
 ## 安装 ollama
@@ -62,7 +75,7 @@ ollama run llama3.2
 ## 安装 docker
 
 ```shell
-sudo nala install docker.io
+sudo apt install docker.io
 sudo systemctl enable docker
 ```
 
@@ -115,6 +128,82 @@ sudo apt-get update
 sudo apt-get install grub-customizer
 ```
 
-## 配置 ulauncher
 
-修改 ulauncher 的显示宽度，`sudo vim /usr/share/ulauncher/ui/UlauncherWindow.ui`，修改`width_request`。
+## 加载数据盘
+
+因为数据放在另一个磁盘，所以设置自动加载硬盘，然后映射以下目录
+
+### 设置自动加载硬盘
+
+保证加载目录存在
+
+```bash
+sudo mkdir -p /mnt/data
+```
+
+查找需要加载的硬盘的UUID。
+可以使用 `lsblk` 先确定硬盘的名称叫什么。
+然后使用 `sudo blkid` 查找 UUID。
+
+编辑`/etc/fstab`文件，
+
+```bash
+ sudo nvim /etc/fstab
+```
+
+添加一行
+
+```
+UUID=YOUR_UUID  /mnt/data  ntfs-3g  defaults  0  0
+```
+
+运行
+
+```bash
+sudo systemctl daemon-reload
+```
+
+加载硬盘
+
+```bash
+sudo mount -a
+```
+
+### 创建软链接 
+
+
+这里我只需要使用磁盘中的kilos目录就可以。
+
+```bash
+ln -s /mnt/data/kilos ~/d
+```
+
+## flameshot
+
+### 安装
+
+```bash
+sudo apt install flameshot
+```
+
+### 设置快捷键
+
+在ubuntu的设置中，选择键盘，选择键盘快捷键，查看及自定义快捷键，自定义快捷键，点击加号新建一个快捷键
+
+- 名称：shot
+- 命令：flameshot gui
+- 快捷键：F1
+
+也可以在软件的配置中把在桌面上固定图形设置为快捷键 <kbd>Ctrl-T</kbd>
+
+## uv
+
+uv是我喜欢使用的python环境
+
+### 安装uv
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+然后，`source ~/.local/bin/env` 在当前终端激活
