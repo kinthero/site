@@ -154,7 +154,7 @@ sudo mkdir -p /mnt/data
 添加一行
 
 ```
-UUID=YOUR_UUID  /mnt/data  ntfs-3g  defaults  0  0
+UUID=YOUR_UUID  /mnt/data  ntfs-3g  defaults,uid=1000,gid=1000  0  0
 ```
 
 运行
