@@ -1,33 +1,48 @@
 # alacritty 设置
 
+alacritty 的配置文件的路径
+
+linux
+- $XDG_CONFIG_HOME/alacritty/alacritty.toml
+- $XDG_CONFIG_HOME/alacritty.toml
+- $HOME/.config/alacritty/alacritty.toml
+- $HOME/.alacritty.toml
+
+windows
+- %APPDATA%\alacritty\alacritty.toml
+
+安装主题 catppuccin
+
+```bash
+curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-frappe.toml
+```
+
+
 配置文件
 
 ```toml
+[general]
+import = [
+  "~/.config/alacritty/catppuccin-frappe.toml"
+]
 live_config_reload = true
 
-[shell]
-program = "ubuntu"
-
 [window]
-# dimensions = {columns = 100, lines = 40}
-position = { x = 400, y = 300}
-padding = { x = 8, y = 0}
-startup_mode = "Fullscreen"
-decorations = "Full"
-title = "ubuntu"
-dynamic_title = false
-opacity = 0.8
-
-
-[scrolling]
-history = 10000
-multiplier = 3
+opacity = 0.85
 
 [font]
-normal = { family = "Hack Nerd Font Mono", style = "Regular" }
-size = 12
-builtin_box_drawing = true
+normal = { family = "FiraCode Nerd Font Mono", style="Regular" }
+size = 14
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { blinking = "Always" }
+blink_interval = 600
+blink_timeout = 0
 
 [mouse]
 hide_when_typing = true
+```
 ```
