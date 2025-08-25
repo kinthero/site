@@ -31,7 +31,7 @@ export LANG=zh_CH
 
 ## ulauncher
 
-### 修改ulauncher的宽度
+### 修改 ulauncher 的宽度
 
 编辑文件
 
@@ -41,9 +41,9 @@ sudo vim /usr/share/ulauncher/ui/UlauncherWindow.ui
 
 修改 `width_request`
 
-### 修改ulauncher主题
+### 修改 ulauncher 主题
 
-下载安装catppuccin主题
+下载安装 catppuccin 主题
 
 ```bash
 python3 <(curl https://raw.githubusercontent.com/catppuccin/ulauncher/main/install.py -fsSL)
@@ -141,7 +141,7 @@ sudo apt-get install grub-customizer
 sudo mkdir -p /mnt/data
 ```
 
-查找需要加载的硬盘的UUID。
+查找需要加载的硬盘的 UUID。
 可以使用 `lsblk` 先确定硬盘的名称叫什么。
 然后使用 `sudo blkid` 查找 UUID。
 
@@ -172,7 +172,7 @@ sudo mount -a
 ### 创建软链接 
 
 
-这里我只需要使用磁盘中的kilos目录就可以。
+这里我只需要使用磁盘中的 kilos 目录就可以。
 
 ```bash
 ln -s /mnt/data/kilos ~/d
@@ -188,7 +188,7 @@ sudo apt install flameshot
 
 ### 设置快捷键
 
-在ubuntu的设置中，选择键盘，选择键盘快捷键，查看及自定义快捷键，自定义快捷键，点击加号新建一个快捷键
+在 ubuntu 的设置中，选择键盘，选择键盘快捷键，查看及自定义快捷键，自定义快捷键，点击加号新建一个快捷键
 
 - 名称：shot
 - 命令：flameshot gui
@@ -198,9 +198,9 @@ sudo apt install flameshot
 
 ## uv
 
-uv是我喜欢使用的python环境
+uv 是我喜欢使用的 python 环境
 
-### 安装uv
+### 安装 uv
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
