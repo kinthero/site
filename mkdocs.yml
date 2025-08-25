@@ -82,7 +82,7 @@ theme:
       quote: octicons/quote-16
     annotation: material/arrow-right-circle
   font:
-    text: LXGW WenKai TC
+    # text: LXGW WenKai TC
     code: Fira Code
 
 
