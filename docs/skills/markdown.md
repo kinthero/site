@@ -1,10 +1,26 @@
-# Markdown 写作语法指南
+# markdown
 
-Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`material for mkdocs` 支持更多的语法。基于语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊用法。
+Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`material for mkdocs` 支持更多的语法。基本的markdown语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊的markdown语法和[mkdocs](https://squidfunk.github.io/mkdocs-material/reference/)的拓展语法。
 
-## 实现折叠效果
+- [x] 特殊 markdown
+- [x] Admonititions
+- [ ] Annotations
+- [ ] Buttons
+- [ ] Code blocks
+- [ ] Content tabs
+- [ ] Data tables
+- [ ] Diagrams
+- [ ] Footnotes
+- [ ] Grids
+- [ ] Icons, Emojis
+- [ ] Images
+- [ ] Lists
+- [ ] Math
+- [ ] Tooltips
 
-代码
+## 特殊 markdown
+
+### 折叠内容
 
 ```html
 <details>
@@ -20,8 +36,6 @@ Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`ma
 </details>
 ```
 
-效果
-
 <details>
   <summary>点击查看 python 代码</summary>
 
@@ -34,7 +48,7 @@ Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`ma
 
 </details>
 
-如果需要展开，在 `details` 标签中添加 `open` 属性即可。
+如果需要默认展开，在 `details` 标签中添加 `open` 属性即可。
 
 ```html
 <details open>
@@ -50,9 +64,21 @@ Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`ma
 </details>
 ```
 
+<details open>
+  <summary>点击查看 python 代码</summary>
+
+  ```python
+  def greet(name):
+    return f"hello {name}"
+
+  print(greet("world))
+  ```
+
+</details>
+
 这个代码在 `material for mkdocs` 中的渲染效果是 `Admonition` 的效果
 
-## html 标签波浪线问题
+### html 标签波浪线问题
 
 因为 markdown 的规范中默认是不应该有 `html` 标签，但是如果要在 `markdown` 中使用 `html` 标签，需要在项目根目录下创建一个`.markdownlint.json` 文件。
 
@@ -62,7 +88,7 @@ Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`ma
 }
 ```
 
-## 使用脚注替换引用
+### 脚注
 
 代码
 
@@ -77,6 +103,124 @@ Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`ma
 这是一个[脚注][1] 效果
 
 [1]: https://www.example.com
+
+## admonitions
+
+### 基本提醒
+
+```
+!!! note
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+```
+
+!!! note
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+这是一些支持的关键词
+
+- note 
+- abstract
+- info
+- tip 
+- success
+- question 
+- warning
+- failure
+- danger
+- bug
+- example
+
+### 嵌套提醒
+
+```
+!!! note "Outer Note"
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+    !!! note "Inner Note"
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+        nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+        massa, nec semper lorem quam in massa.
+```
+
+!!! note "Outer Note"
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+    !!! note "Inner Note"
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+        nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+        massa, nec semper lorem quam in massa.
+
+### 无标题提醒
+
+```
+!!! note ""
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+```
+
+!!! note ""
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+### 默认折叠的提醒
+
+就是把感叹号替换成问号
+
+```
+??? note
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+```
+
+??? note
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+### 行内提醒
+
+添加 inline end 在右侧显示提醒框，使用 inline 在左侧显示提醒框
+
+```
+!!! info inline end "Lorem ipsum"
+
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Nulla et euismod nulla.
+    Curabitur feugiat, tortor non consequat
+    finibus, justo purus auctor massa, nec
+    semper lorem quam in massa.
+```
+
+```
+!!! info inline "Lorem ipsum"
+
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Nulla et euismod nulla.
+    Curabitur feugiat, tortor non consequat
+    finibus, justo purus auctor massa, nec
+    semper lorem quam in massa.
+```
 
 ## 给代码添加标题
 
