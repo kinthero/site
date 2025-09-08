@@ -1,3 +1,6 @@
+---
+date: 2025-09-07
+---
 # deepseek 简单测试
 
 使用的是 uv, 只需要运行 `uv run test.py` 就可以
