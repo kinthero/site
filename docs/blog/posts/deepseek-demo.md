@@ -1,5 +1,6 @@
 ---
-date: 2025-09-07
+date: 
+  created: 2025-09-07
 ---
 # deepseek 简单测试
 
