@@ -10,7 +10,7 @@ repo_name: kinthero/site
 repo_url: https://github.com/kinthero/site
 
 # Copyright
-copyright: Copyright &copy; 2024 kinther
+copyright: Copyright &copy; 2024 kinther; <a href="http://beian.miit.gov.cn/">沪ICP备2025141940号-1</a>
 
 # Configuration
 theme:
