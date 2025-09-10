@@ -2,7 +2,7 @@
 
 ## 设置字体
 
-mkdocs 设置字体可以参考 [官网文档](https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/?h=font#customization)。我用的是霞鹜文楷，但是 google font 只有一个繁体，对这个提 issue 的人无语。然后霞鹜文楷推荐使用 [ZSFT](https://fonts.zeoseven.com/items/292/)。
+mkdocs 设置字体可以参考 [官网文档](https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/?h=font#customization)。我用的是霞鹜文楷，但是 Google font 只有一个繁体，对这个提 issue 的人无语。然后霞鹜文楷推荐使用 [ZSFT](https://fonts.zeoseven.com/items/292/)。
 
 修改 mkdocs.yml 文件
 

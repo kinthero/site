@@ -1,8 +1,8 @@
-# docker 安装 sqlserver
+# docker 安装 SQLServer
 
 ## 安装
 
-拉取 sqlserver 镜像
+拉取 SQLServer 镜像
 
 ```shell
 docker pull mcr.microsoft.com/mssql/server:2022-latest
@@ -46,7 +46,7 @@ docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd `
    -Q "ALTER LOGIN SA WITH PASSWORD='<YourNewStrong@Passw0rd>'"
 ```
 
-连接到 sqlserver
+连接到 SQLServer
 
 ```shell
 docker exec -it sql1 "bash"

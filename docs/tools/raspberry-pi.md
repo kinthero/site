@@ -47,9 +47,9 @@ sudo dpkg-reconfigure locales
 
 选择 `en_GB.UTF-8 UTF-8`
 输入命令 `locale` 验证
-## vim
+## VIM
 
-安装 vim
+安装 VIM
 
 ```shell
 sudo apt install vim
@@ -161,7 +161,7 @@ docker pull hello-world
 
 ### 下载 mihomo
 
-mihomo 这里就直接使用命令行版本，可以从 [github](https://github.com/MetaCubeX/mihomo/releases) 下载，下载的版本是 xxx-linux-arm64-xxx.deb
+mihomo 这里就直接使用命令行版本，可以从 [GitHub](https://github.com/MetaCubeX/mihomo/releases) 下载，下载的版本是 xxx-linux-arm64-xxx.deb
 将文件通过 scp 复制到树莓派
 
 ```shell

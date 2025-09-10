@@ -1,6 +1,6 @@
 # python 环境配置
 
-本文只讲 windows 的 python 环境配置
+本文只讲 Windows 的 python 环境配置
 
 ## 安装 python(旧的方法)
 
@@ -29,7 +29,7 @@ scoop reset python310
 经常会写很多小测试 demo，如果每次都创建一个虚拟环境的话，会浪费很多磁盘空间。所以还是有个 conda 环境好点。最近发现一个新的 conda 发行版：miniforge。比 miniconda 相对大一点，但是默认包含的包也多一点。
 从[项目地址](https://github.com/conda-forge/miniforge)下载对应的安装包进行安装就可以。
 
-在 windows 上安装完成了之后，会发现只有 cmd 的命令行版本，打开`Miniforge Prompt`，然后运行
+在 Windows 上安装完成了之后，会发现只有 cmd 的命令行版本，打开`Miniforge Prompt`，然后运行
 
 ```shell
 conda init powershell

@@ -54,7 +54,7 @@ localsend
 
 ## scoop search 加速
 
-有两个方法加速查找软件，第一种是使用 sqlite 缓存
+有两个方法加速查找软件，第一种是使用 SQLite 缓存
 
 ```shell
 scoop config use_sqlite_cache true

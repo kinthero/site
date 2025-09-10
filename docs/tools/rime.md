@@ -4,7 +4,7 @@
 
 在官网可以下载安装 [rime](https://rime.im/download/)。
 
-ubuntu 安装 rime
+Ubuntu 安装 rime
 
 ```bash
 sudo apt-get install ibus-rime

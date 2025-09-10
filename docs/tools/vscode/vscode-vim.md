@@ -1,6 +1,6 @@
-# vscode vim 配置
+# vscode VIM 配置
 
-## 完整的 vim 配置
+## 完整的 VIM 配置
 
 <details>
 <summary>settings.json</summary>
@@ -188,7 +188,7 @@
 
 </details>
 
-## vim 配置
+## VIM 配置
 
 需要安装的插件`vscodevim.vim`有需要可以安装`vintharas.learn-vim`学习一下。
 
@@ -202,7 +202,7 @@
 },
 ```
 
-vim 中有一些插件功能可以开启，在`settings.json`开启的部分功能如下：
+VIM 中有一些插件功能可以开启，在`settings.json`开启的部分功能如下：
 
 - 将 leader 按键设为空格，默认为`\`
 - 使用系统剪切板
@@ -218,7 +218,7 @@ vim 中有一些插件功能可以开启，在`settings.json`开启的部分功�
 },
 ```
 
-vim 的案件配置有几种
+VIM 的案件配置有几种
 
 - vim.insertModeKeyBindings - 插入模式按键绑定
 - vim.normalModeKeyBindings - 普通模式按键绑定

@@ -1,6 +1,6 @@
 # 深蓝词库使用
 
-这里在 ubuntu 下为自带的输入法添加词库。
+这里在 Ubuntu 下为自带的输入法添加词库。
 
 首先，下载深蓝转换器，[地址](https://github.com/studyzy/imewlconverter/releases)，然后进入目录。
 

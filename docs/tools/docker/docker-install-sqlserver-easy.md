@@ -1,4 +1,4 @@
-# docker 安装 sqlserver 简易版
+# docker 安装 SQLServer 简易版
 
 ## TLDR
 
@@ -16,7 +16,7 @@ sqlcmd create mssql --accept-eula --name mssql
 winget install sqlcmd
 ```
 
-sqlcmd 可以直接创建 sqlserver 容器，查看可选项
+sqlcmd 可以直接创建 SQLServer 容器，查看可选项
 
 ```shell
 sqlcmd create mssql --help
@@ -24,7 +24,7 @@ sqlcmd create mssql --help
 sqlcmd create mssql get-tags
 ```
 
-安装 sqlserver 2022 并且创建实例，然后还原 Wide World Importers 实例，可以不还原。
+安装 SQLServer 2022 并且创建实例，然后还原 Wide World Importers 实例，可以不还原。
 
 ```shell
 sqlcmd create mssql --accept-eula --tag 2022-latest --using https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Full.bak

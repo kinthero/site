@@ -1,6 +1,6 @@
-# windows terminal 设置
+# Windows terminal 设置
 
-安装 [windows terminal](https://learn.microsoft.com/zh-cn/windows/terminal/install)，可以使用命令行直接安装。
+安装 [Windows terminal](https://learn.microsoft.com/zh-cn/windows/terminal/install)，可以使用命令行直接安装。
 
 ```bash
 winget install --id Microsoft.WindowsTerminal -e
@@ -8,7 +8,7 @@ winget install --id Microsoft.WindowsTerminal -e
 
 ## 打开配置文件
 
-配置都放在 `settings` 中，可以使用快捷键 `ctrl+,` 打开设置，然后点击左下角打开 json 文件。
+配置都放在 `settings` 中，可以使用快捷键 `ctrl+,` 打开设置，然后点击左下角打开 JSON 文件。
 
 ## 基础配置
 

@@ -1,4 +1,4 @@
-# docker 安装 hadoop 集群
+# docker 安装 Hadoop 集群
 
 创建`docker-compose.yaml`文件，写入
 

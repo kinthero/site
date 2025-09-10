@@ -1,8 +1,8 @@
-# markdown
+# Markdown
 
-Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`material for mkdocs` 支持更多的语法。基本的 markdown 语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊的 markdown 语法和[mkdocs](https://squidfunk.github.io/mkdocs-material/reference/)的拓展语法。
+Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`material for mkdocs` 支持更多的语法。基本的 Markdown 语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊的 Markdown 语法和[mkdocs](https://squidfunk.github.io/mkdocs-material/reference/)的拓展语法。
 
-- [x] 特殊 markdown
+- [x] 特殊 Markdown
 - [x] Admonititions
 - [ ] Annotations
 - [ ] Buttons
@@ -18,7 +18,7 @@ Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`ma
 - [ ] Math
 - [ ] Tooltips
 
-## 特殊 markdown
+## 特殊 Markdown
 
 ### 折叠内容
 
@@ -78,9 +78,9 @@ Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`ma
 
 这个代码在 `material for mkdocs` 中的渲染效果是 `Admonition` 的效果
 
-### html 标签波浪线问题
+### HTML 标签波浪线问题
 
-因为 markdown 的规范中默认是不应该有 `html` 标签，但是如果要在 `markdown` 中使用 `html` 标签，需要在项目根目录下创建一个`.markdownlint.json` 文件。
+因为 Markdown 的规范中默认是不应该有 `html` 标签，但是如果要在 `markdown` 中使用 `html` 标签，需要在项目根目录下创建一个`.markdownlint.json` 文件。
 
 ```json
 {

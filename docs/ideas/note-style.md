@@ -48,8 +48,8 @@
 
 ### 标题的命名
 
-笔记名称可以用来做分类，比如 python，或者 ubuntu。
-不推荐再做拆分，比如 python 基础，ubuntu 安装下载。
+笔记名称可以用来做分类，比如 python，或者 Ubuntu。
+不推荐再做拆分，比如 python 基础，Ubuntu 安装下载。
 
 ## 概述
 

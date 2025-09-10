@@ -1,6 +1,6 @@
 # git 配置
 
-## 连接 github
+## 连接 GitHub
 
 设置用户信息
 
@@ -16,7 +16,7 @@ git config --global --list
 ssh-keygen -t rsa -b 4096 -C "email"
 ```
 
-复制公钥，粘贴到 github -> settings -> SSH and GPG keys -> New SSH key，[快速链接](https://github.com/settings/keys)
+复制公钥，粘贴到 GitHub -> settings -> SSH and GPG keys -> New SSH key，[快速链接](https://github.com/settings/keys)
 
 ```shell
 cat .ssh/id_rsa.pub
