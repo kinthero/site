@@ -1,6 +1,6 @@
 # markdown
 
-Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`material for mkdocs` 支持更多的语法。基本的markdown语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊的markdown语法和[mkdocs](https://squidfunk.github.io/mkdocs-material/reference/)的拓展语法。
+Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`material for mkdocs` 支持更多的语法。基本的 markdown 语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊的 markdown 语法和[mkdocs](https://squidfunk.github.io/mkdocs-material/reference/)的拓展语法。
 
 - [x] 特殊 markdown
 - [x] Admonititions
