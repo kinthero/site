@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://huacnlee.github.io/autocorrect/schema.json
 rules:
   # Default rules: https://github.com/huacnlee/autocorrect/raw/main/autocorrect/.autocorrectrc.default
-  spellcheck: 2
+  spellcheck: 1
 # Enable or disable in special context
 context:
   # Enable or disable to format codeblock in Markdown or AsciiDoc etc.
