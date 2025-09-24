@@ -106,6 +106,23 @@ Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`ma
 
 ## admonitions
 
+### 改用 GitHub 风格的 callout
+
+为了保证文档尽可能的兼容多其他平台，还是使用 GitHub 风格的 callout 吧。
+基本的写法
+
+```markdown
+> [!note]
+> this is callout
+```
+
+效果
+
+> [!note]
+> this is callout
+
+需要使用插件 [markdown-callouts](https://github.com/oprypin/markdown-callouts)
+
 ### 基本提醒
 
 ```
