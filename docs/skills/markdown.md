@@ -2,7 +2,7 @@
 
 Markdown 有很多的方言，mkdocs 支持了基本的 Markdown 语法，而`material for mkdocs` 支持更多的语法。
 基本的 Markdown 语法参考[这里](https://daringfireball.net/projects/markdown/syntax),本文只记录一些特殊的 Markdown 语法和[mkdocs](https://squidfunk.github.io/mkdocs-material/reference/)的拓展语法。
-为了通用性，书写风格尽可能使用 [github](https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github) 的风格。
+为了通用性，书写风格尽可能使用 [GitHub](https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github) 的风格。
 
 - [x] 特殊 Markdown
 - [x] Admonititions

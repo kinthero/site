@@ -1,5 +1,51 @@
 # Ubuntu 设置
 
+TODO:
+
+修改结构：
+
+- 基础设置
+- 个性化设置
+- 基础软件
+- 专业软件
+
+## 个性化设置
+
+### 交换 Caps 和 Esc
+
+原来的方案是使用 gnome tweak 把 Caps 和 Ctrl 互相交换。
+但是发现一个工具 [keyd](https://github.com/rvaiya/keyd)，可以把 Caps 设置成点按是 Esc，长按是 Ctrl。
+然后再把 Esc 映射成 Caps。
+
+> 安装
+
+```bash
+git clone https://github.com/rvaiya/keyd
+cd keyd
+make && sudo make install
+sudo systemctl enable --now keyd
+```
+
+> 配置
+
+- sudo vim /etc/keyd/default.conf 
+
+```bash
+[ids]
+
+*
+
+[main]
+
+# Maps capslock to escape when pressed and control when held.
+capslock = overload(control, esc)
+
+# Remaps the escape key to capslock
+esc = capslock
+```
+
+执行 `sudo keyd reload`。
+
 ## 更新
 
 ```shell
