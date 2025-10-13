@@ -15,6 +15,7 @@ copyright: Copyright &copy; 2024 kinther; <a href="http://beian.miit.gov.cn/">æ²
 # Configuration
 theme:
   name: material
+  custom_dir: overrides
   language: zh
   features:
     - announce.dismiss
@@ -175,3 +176,4 @@ nav:
   - skills: skills/
   - tools: tools/
   - Blog: blog/
+  - bookmarks: bookmarks.md
