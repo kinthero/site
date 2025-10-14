@@ -3,161 +3,371 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title }}</title>
+<title>书签页</title>
 <style>
-  /* Reset & 基础 */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; color: #333; }
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #f093fb;
+    --background-color: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-color: #2d3748;
+    --text-muted: #718096;
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-hover: 0 10px 30px rgba(0,0,0,0.12);
+    --transition: all 0.3s ease;
+}
 
-  /* 布局 */
-  .container { display: flex; min-height: 100vh; }
-  .tabs { width: 200px; flex-shrink: 0; display: flex; flex-direction: column; overflow-y: auto; background: #fff; }
-  .tab { padding: 15px 20px; cursor: pointer; font-weight: 600; color: #fff; transition: all 0.3s; }
-  .tab.active { box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-  .content-area { flex: 1; padding: 30px; display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.8); }
+body {
+    font-family: 'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-  /* 搜索框 */
-  .search-box { display: flex; width: 100%; max-width: 600px; margin-bottom: 20px; }
-  .search-box input { flex: 1; padding: 10px 15px; border: 1px solid #ccc; border-radius: 5px 0 0 5px; font-size: 16px; }
-  .search-box button { padding: 10px 20px; border: none; background: #4CAF50; color: #fff; font-size: 16px; cursor: pointer; border-radius: 0 5px 5px 0; transition: background 0.3s; }
-  .search-box button:hover { background: #45a049; }
+/* 背景装饰 */
+.bg-decoration { position:fixed; z-index:-1; pointer-events:none; border-radius:50%; filter:blur(60px); opacity:0.08; animation:float 8s ease-in-out infinite; }
+.bg-circle-1 { width:480px; height:480px; background:linear-gradient(135deg,#667eea,#764ba2); top:10%; right:5%; animation-delay:0s; }
+.bg-circle-2 { width:420px; height:420px; background:linear-gradient(135deg,#f093fb,#f5576c); bottom:10%; left:5%; animation-delay:3s; }
+.bg-circle-3 { width:300px; height:300px; background:linear-gradient(135deg,#4facfe,#00f2fe); top:50%; left:10%; animation-delay:6s; }
+.bg-circle-4 { width:350px; height:350px; background:linear-gradient(135deg,#43e97b,#38f9d7); bottom:30%; right:15%; animation-delay:2s; }
+@keyframes float { 0%,100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-30px) rotate(5deg); } }
 
-  /* 链接卡片 */
-  .cards { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; width: 100%; }
-  .card { background: rgba(255,255,255,0.7); padding: 20px; border-radius: 12px; width: 250px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; text-align: center; }
-  .card:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+/* 主结构 */
+.main-container { display:flex; width:100%; min-height:100vh; }
 
-  .card a { text-decoration: none; color: #333; font-weight: 600; display: block; margin-bottom: 5px; }
-  .card p { font-size: 14px; color: #555; }
+/* 左侧 Tab 栏 */
+.tab-container {
+    width:160px;
+    padding:20px 0;
+    display:flex;
+    flex-direction:column;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(8px);
+    border-right:1px solid rgba(0,0,0,0.05);
+    flex-shrink:0;
+}
 
-  /* Tab 颜色循环 */
-  .tab:nth-child(1) { background: #ff6b6b; }
-  .tab:nth-child(2) { background: #6bc1ff; }
-  .tab:nth-child(3) { background: #6bff95; }
-  .tab:nth-child(4) { background: #ffcb6b; }
-  .tab:nth-child(5) { background: #c56bff; }
+/* 右侧内容区域 */
+.content-container {
+    flex:1;
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+}
 
-  /* 响应式 */
-  @media(max-width: 768px){
-    .container { flex-direction: column; }
-    .tabs { width: 100%; display: flex; flex-direction: row; overflow-x: auto; }
-    .tab { flex-shrink: 0; white-space: nowrap; text-align: center; }
-    .content-area { padding: 20px; }
-    .cards { gap: 15px; }
-    .card { width: 45%; }
-    .search-box { max-width: 100%; }
-  }
-  @media(max-width: 480px){
-    .card { width: 100%; }
-    .search-box input, .search-box button { font-size: 14px; padding: 8px; }
-  }
+/* 隐藏 Markdown 原始内容 */
+.markdown-content { display:none; }
+
+/* Tab 样式 */
+.tab {
+    padding:12px 12px 12px 20px;
+    cursor:pointer;
+    transition: var(--transition);
+    margin:0 0 1px 0;
+    font-weight:500;
+    font-size:15px;
+    color: var(--text-color);
+    background:transparent;
+    border:none;
+    text-align:left;
+    border-radius:0 6px 6px 0;
+}
+.tab:hover { background: rgba(0,0,0,0.04); color:var(--primary-color); }
+.tab.active {
+    background:white;
+    color: var(--primary-color);
+    font-weight:600;
+    box-shadow: var(--shadow);
+    position:relative;
+}
+.tab.active::before {
+    content:'';
+    position:absolute;
+    left:8px;
+    top:50%;
+    transform:translateY(-50%);
+    width:3px;
+    height:16px;
+    background: currentColor;
+    border-radius:2px;
+}
+
+/* 搜索框 */
+.search-container { width:500px; max-width:90%; margin:0 auto 35px; position:relative; }
+.search-box {
+    width:100%;
+    padding:14px 45px 14px 20px;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius:25px;
+    box-shadow:var(--shadow);
+    font-size:15px;
+    background:white;
+    transition:var(--transition);
+}
+.search-box:focus {
+    outline:none;
+    box-shadow:0 6px 25px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+.search-icon {
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:18px;
+    color: var(--text-muted);
+    cursor:pointer;
+    transition: var(--transition);
+}
+.search-icon:hover { color: var(--primary-color); }
+
+/* Tab 内容区域 */
+.tab-content { display:none; width:100%; animation:fadeIn 0.3s ease; }
+.tab-content.active { display:block; }
+@keyframes fadeIn { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+/* 卡片网格 */
+.cards-container {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:20px;
+    width:100%;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding:20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-decoration:none;
+    color: inherit;
+    display:block;
+    border:1px solid rgba(0,0,0,0.05);
+    position:relative;
+    overflow:hidden;
+    backdrop-filter: blur(10px);
+    min-height:120px;
+}
+.card:hover { transform:translateY(-4px) scale(1.02); box-shadow:var(--shadow-hover); border-color:rgba(0,0,0,0.1); }
+.card::before {
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0; height:3px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+.card:hover::before { transform: scaleX(1); }
+.card-title { font-size:16px; font-weight:600; margin-bottom:8px; color: var(--primary-color); line-height:1.3; }
+.card-description { font-size:14px; color: var(--text-muted); line-height:1.5; }
+
+/* 响应式 */
+@media(max-width:1024px){
+    .main-container{ flex-direction:column; }
+    .tab-container{ width:100%; flex-direction:row; overflow-x:auto; justify-content:center; padding:12px 0; }
+    .tab{ flex-shrink:0; margin:0 6px; padding:10px 16px; border-radius:var(--border-radius-sm); }
+    .content-container{ padding:20px; }
+    .cards-container{ grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); }
+}
+@media(max-width:768px){
+    .search-container{ width:100%; max-width:360px; }
+    .cards-container{ gap:15px; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); }
+    .tab{ font-size:14px; }
+}
+@media(max-width:480px){
+    .content-container{ padding:20px 10px; }
+    .search-container{ width:95%; min-width:250px; }
+    .cards-container{ grid-template-columns: 1fr; }
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar { width:4px; height:4px; }
+::-webkit-scrollbar-track{ background: rgba(0,0,0,0.03); border-radius:2px; }
+::-webkit-scrollbar-thumb{ background: rgba(0,0,0,0.12); border-radius:2px; }
+::-webkit-scrollbar-thumb:hover{ background: rgba(0,0,0,0.2); }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="tabs" id="tabs"></div>
-  <div class="content-area">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="搜索...">
-      <button id="searchBtn">搜索</button>
-    </div>
-    <div class="cards" id="cards"></div>
-  </div>
+<div class="bg-decoration bg-circle-1"></div>
+<div class="bg-decoration bg-circle-2"></div>
+<div class="bg-decoration bg-circle-3"></div>
+<div class="bg-decoration bg-circle-4"></div>
+
+<div class="markdown-content">
+    {{ page.content | safe }}
 </div>
 
-<!-- Markdown 内容 -->
-<div id="markdown-content" style="display:none;">
-{{ page.content | safe }}
+<div class="main-container">
+    <div class="tab-container" id="tabContainer"></div>
+    <div class="content-container">
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchBox" placeholder="搜索网络资源...">
+            <div class="search-icon" id="searchIcon">🔍</div>
+        </div>
+        <div id="contentArea"></div>
+    </div>
 </div>
 
 <script>
-  // 从 Markdown 渲染内容生成 Tabs 和卡片
-  const mdContainer = document.getElementById('markdown-content');
-  const tabsContainer = document.getElementById('tabs');
-  const cardsContainer = document.getElementById('cards');
+document.addEventListener('DOMContentLoaded',function(){
+    const tabColors=['#667eea','#f093fb','#4facfe','#43e97b','#fa709a','#ff9a9e'];
 
-  const colors = ['#ff6b6b','#6bc1ff','#6bff95','#ffcb6b','#c56bff'];
+    function cleanText(text){ return text.replace(/¶/g,'').trim(); }
 
-  function parseMarkdown() {
-    const headings = Array.from(mdContainer.querySelectorAll('h2'));
-    const data = headings.map((h, idx) => {
-      const links = [];
-      let el = h.nextElementSibling;
-      while(el && el.tagName.toLowerCase() !== 'h2'){
-        if(el.tagName.toLowerCase() === 'ul'){
-          const items = el.querySelectorAll('li');
-          items.forEach(li => {
-            const a = li.querySelector('a');
-            if(a){
-              const desc = li.innerText.replace(a.innerText,'').trim();
-              links.push({title: a.innerText, href: a.href, desc});
-            }
-          });
+    function parseMarkdown(){
+        const tabs=[]; 
+        try{
+            const markdownContent=document.querySelector('.markdown-content');
+            if(!markdownContent) return getSampleData();
+            const headings=markdownContent.querySelectorAll('h1,h2');
+            if(headings.length===0) return getSampleData();
+            headings.forEach((heading,index)=>{
+                const tabName=cleanText(heading.textContent);
+                const tabColor=tabColors[index % tabColors.length];
+                let nextElement=heading.nextElementSibling;
+                const links=[];
+                while(nextElement && !nextElement.matches('h1,h2')){
+                    if(nextElement.matches('ul')){
+                        const listItems=nextElement.querySelectorAll('li');
+                        listItems.forEach(item=>{
+                            const link=item.querySelector('a');
+                            if(link){
+                                const url=link.getAttribute('href');
+                                const title=cleanText(link.textContent);
+                                let description='';
+                                const linkText=link.outerHTML;
+                                const fullText=item.innerHTML;
+                                const descriptionStart=fullText.indexOf(linkText)+linkText.length;
+                                description=cleanText(fullText.substring(descriptionStart));
+                                description=description.replace(/<[^>]*>/g,'');
+                                links.push({title,url,description});
+                            }
+                        });
+                    }
+                    nextElement=nextElement.nextElementSibling;
+                }
+                if(links.length>0) tabs.push({name:tabName,color:tabColor,links});
+            });
+        }catch(e){ return getSampleData(); }
+        return tabs.length>0 ? tabs : getSampleData();
+    }
+
+    function getSampleData(){
+        return [
+            {name:"工作",color:tabColors[0],links:[
+                {title:"Notion",url:"https://notion.so",description:"工作笔记与团队协作"},
+                {title:"Slack",url:"https://slack.com",description:"团队沟通与消息管理"},
+                {title:"Trello",url:"https://trello.com",description:"项目看板工具"},
+                {title:"Asana",url:"https://asana.com",description:"项目管理工具"},
+                {title:"Jira",url:"https://jira.com",description:"敏捷开发管理"},
+                {title:"Figma",url:"https://figma.com",description:"设计协作工具"},
+                {title:"Zoom",url:"https://zoom.us",description:"视频会议工具"},
+                {title:"Google Drive",url:"https://drive.google.com",description:"云存储与协作"}]},
+            {name:"学习",color:tabColors[1],links:[
+                {title:"Coursera",url:"https://coursera.org",description:"在线课程平台"},
+                {title:"Khan Academy",url:"https://khanacademy.org",description:"免费学习资源"},
+                {title:"MDN",url:"https://developer.mozilla.org",description:"Web 开发文档"},
+                {title:"Stack Overflow",url:"https://stackoverflow.com",description:"编程问答社区"},
+                {title:"GitHub",url:"https://github.com",description:"代码托管平台"},
+                {title:"Udemy",url:"https://udemy.com",description:"在线技能课程"},
+                {title:"edX",url:"https://edx.org",description:"大学在线课程"},
+                {title:"Codecademy",url:"https://codecademy.com",description:"交互式编程学习"}]},
+            {name:"工具",color:tabColors[2],links:[
+                {title:"ChatGPT",url:"https://chat.openai.com",description:"AI 助手"},
+                {title:"Canva",url:"https://canva.com",description:"在线设计工具"},
+                {title:"Grammarly",url:"https://grammarly.com",description:"英文写作助手"},
+                {title:"Evernote",url:"https://evernote.com",description:"笔记应用"},
+                {title:"Dropbox",url:"https://dropbox.com",description:"文件同步工具"},
+                {title:"LastPass",url:"https://lastpass.com",description:"密码管理器"},
+                {title:"Calendly",url:"https://calendly.com",description:"日程安排工具"},
+                {title:"Notion",url:"https://notion.so",description:"全能工作台"}]}
+        ];
+    }
+
+    function renderTabs(tabs){
+        const tabContainer=document.getElementById('tabContainer');
+        tabs.forEach((tab,index)=>{
+            const tabElement=document.createElement('div');
+            tabElement.className=index===0?'tab active':'tab';
+            tabElement.style.setProperty('--primary-color',tab.color);
+            tabElement.setAttribute('data-tab-index',index);
+            tabElement.textContent=tab.name;
+            tabElement.addEventListener('click',function(){
+                document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById(`tab-content-${index}`).classList.add('active');
+            });
+            tabContainer.appendChild(tabElement);
+        });
+    }
+
+    function renderContent(tabs){
+        const contentArea=document.getElementById('contentArea');
+        if(tabs.length===0){
+            contentArea.innerHTML=`<div style="text-align:center;padding:40px 20px;"><div style="font-size:36px;margin-bottom:16px;opacity:0.5;">📚</div><h3 style="margin-bottom:12px;color:var(--text-color);">未找到书签内容</h3><p style="color:var(--text-muted);font-size:14px;">请确保您的 Markdown 文件包含标题和链接列表</p></div>`;
+            return;
         }
-        el = el.nextElementSibling;
-      }
-      return {title: h.innerText, links, color: colors[idx % colors.length]};
-    });
-    return data;
-  }
+        tabs.forEach((tab,index)=>{
+            const tabContent=document.createElement('div');
+            tabContent.id=`tab-content-${index}`;
+            tabContent.className=index===0?'tab-content active':'tab-content';
+            const cardsContainer=document.createElement('div');
+            cardsContainer.className='cards-container';
+            if(tab.links.length===0){
+                cardsContainer.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:30px;"><div style="font-size:36px;opacity:0.5;margin-bottom:12px;">📭</div><p style="color:var(--text-muted);font-size:14px;">此分类下暂无书签</p></div>`;
+            } else {
+                tab.links.forEach(link=>{
+                    const card=document.createElement('a');
+                    card.className='card';
+                    card.href=link.url;
+                    card.target='_blank';
+                    const title=document.createElement('div');
+                    title.className='card-title';
+                    title.textContent=link.title;
+                    const description=document.createElement('div');
+                    description.className='card-description';
+                    description.textContent=link.description;
+                    card.appendChild(title);
+                    card.appendChild(description);
+                    cardsContainer.appendChild(card);
+                });
+            }
+            tabContent.appendChild(cardsContainer);
+            contentArea.appendChild(tabContent);
+        });
+    }
 
-  const tabsData = parseMarkdown();
+    function setupSearch(){
+        const searchBox=document.getElementById('searchBox');
+        const searchIcon=document.getElementById('searchIcon');
+        const performSearch=()=>{ const query=searchBox.value.trim(); if(query){ window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`,'_blank'); searchBox.value=''; } };
+        searchBox.addEventListener('keypress',e=>{if(e.key==='Enter') performSearch();});
+        searchIcon.addEventListener('click',performSearch);
+    }
 
-  function renderTabs(activeIdx=0){
-    tabsContainer.innerHTML = '';
-    tabsData.forEach((tab, idx)=>{
-      const div = document.createElement('div');
-      div.className = 'tab' + (idx===activeIdx?' active':'');
-      div.style.background = tab.color;
-      div.innerText = tab.title;
-      div.onclick = ()=> {
-        renderTabs(idx);
-        renderCards(idx);
-      };
-      tabsContainer.appendChild(div);
-    });
-    renderCards(activeIdx);
-  }
+    function init(){ 
+        const tabs=parseMarkdown();
+        renderTabs(tabs);
+        renderContent(tabs);
+        setupSearch();
+    }
 
-  function renderCards(tabIdx){
-    cardsContainer.innerHTML = '';
-    const links = tabsData[tabIdx].links;
-    links.forEach(link=>{
-      const card = document.createElement('div');
-      card.className = 'card';
-      const a = document.createElement('a');
-      a.href = link.href;
-      a.target = '_blank';
-      a.innerText = link.title;
-      card.appendChild(a);
-      if(link.desc) {
-        const p = document.createElement('p');
-        p.innerText = link.desc;
-        card.appendChild(p);
-      }
-      cardsContainer.appendChild(card);
-    });
-  }
-
-  // 搜索功能
-  const searchInput = document.getElementById('searchInput');
-  const searchBtn = document.getElementById('searchBtn');
-
-  function doSearch(){
-    const q = searchInput.value.trim();
-    if(q) window.open(`https://www.google.com/search?q=${encodeURIComponent(q)}`, '_blank');
-  }
-
-  searchBtn.addEventListener('click', doSearch);
-  searchInput.addEventListener('keypress', e=>{
-    if(e.key === 'Enter') doSearch();
-  });
-
-  // 初始化
-  renderTabs();
+    setTimeout(init,100);
+});
 </script>
-
 </body>
 </html>
+
+
