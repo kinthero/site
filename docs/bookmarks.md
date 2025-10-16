@@ -5,6 +5,8 @@ template: bookmarks.html
 
 ## 常用网站
 
+- [我的网站](http://www.kinther.site)
+- [YouTube](https://www.youtube.com/)
 - [ChatGPT](https://chat.openai.com) AI
 - [deepseek](https://chat.deepseek.com/)
 - [GitHub](https://github.com) 开源代码托管平台
@@ -21,6 +23,17 @@ template: bookmarks.html
 
 - [exercism](https://exercism.org/) 编程
 - [codecrafters](https://app.codecrafters.io/catalog) 编程
+
+## AI 聊天
+
+- [ChatGPT](https://chat.openai.com)
+- [deepseek](https://chat.deepseek.com/)
+- [claude](https://claude.ai/)
+- [gemini](https://gemini.google.com/)
+- [grok](https://grok.com/)
+- [kimi](https://www.kimi.com)
+- [智谱清言](https://chatglm.cn/)
+- [豆包](https://www.doubao.com)
 
 ## AI 资源
 
