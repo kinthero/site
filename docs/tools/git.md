@@ -13,13 +13,13 @@ git config --global --list
 生成密钥
 
 ```shell
-ssh-keygen -t rsa -b 4096 -C "email"
+ssh-keygen -t ed25519 -C "email"
 ```
 
 复制公钥，粘贴到 GitHub -> settings -> SSH and GPG keys -> New SSH key，[快速链接](https://github.com/settings/keys)
 
 ```shell
-cat .ssh/id_rsa.pub
+cat .ssh/id_ed25519.pub
 ```
 
 测试是否可以连接
