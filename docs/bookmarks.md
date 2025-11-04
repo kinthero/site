@@ -1,31 +1,40 @@
 ---
 title: 🌐 Kinther's Bookmarks
-template: bookmarks.html
+hide:
+  - navigation
+  - footer
 ---
 
 ## 常用网站
 
+<div class="grid cards" markdown>
 - [我的网站](http://www.kinther.site)
 - [YouTube](https://www.youtube.com/)
 - [ChatGPT](https://chat.openai.com) AI
 - [deepseek](https://chat.deepseek.com/)
 - [GitHub](https://github.com) 开源代码托管平台
+</div>
 
 ## 资讯阅读
 
+<div class="grid cards" markdown>
 - [Hacker News](https://news.ycombinator.com) 科技
 - [lobsters](https://lobste.rs) 科技
 - [Reddit](https://reddit.com)
 - [阮一峰的网络日志](https://www.ruanyifeng.com/blog/)
 - [少数派](https://sspai.com)
+</div>
 
 ## 学习网站
 
+<div class="grid cards" markdown>
 - [exercism](https://exercism.org/) 编程
 - [codecrafters](https://app.codecrafters.io/catalog) 编程
+</div>
 
 ## AI 聊天
 
+<div class="grid cards" markdown>
 - [ChatGPT](https://chat.openai.com)
 - [deepseek](https://chat.deepseek.com/)
 - [claude](https://claude.ai/)
@@ -34,9 +43,11 @@ template: bookmarks.html
 - [kimi](https://www.kimi.com)
 - [智谱清言](https://chatglm.cn/)
 - [豆包](https://www.doubao.com)
+</div>
 
 ## AI 资源
 
+<div class="grid cards" markdown>
 - [深度学习论文实现](https://github.com/labmlai/annotated_deep_learning_paper_implementations)
 - [机器学习阅读清单](https://github.com/elicit/machine-learning-list)
 - [llya 推荐论文清单](https://arc.net/folder/D0472A20-9C20-4D3F-B145-D2865C0A9FEE)
@@ -49,9 +60,11 @@ template: bookmarks.html
 - [Qwen](https://github.com/QwenLM/Qwen3)
 - [llama from scratch](https://github.com/bkitano/llama-from-scratch)
 - [minimind](https://github.com/jingyaogong/minimind)
+</div>
 
 ## AI 学习
 
+<div class="grid cards" markdown>
 - [deeplearning.ai](https://learn.deeplearning.ai/) 视频
 - [fast.ai](https://www.fast.ai/) 视频
 - [llama3-from-scratch](https://github.com/naklecha/llama3-from-scratch)
@@ -66,7 +79,6 @@ template: bookmarks.html
 - [LLM 入门实战系列](https://github.com/km1994/LLMsNineStoryDemonTower)
 - [smol-course](https://github.com/huggingface/smol-course) huggingface 出品
 - [llm-action](https://github.com/liguodongiot/llm-action) 让天下没有难学的大模型
+- [hello-agents](https://github.com/datawhalechina/hello-agents)
+</div>
 
-## 漫画电影
-
-- [mangabz](https://www.mangabz.com/) 看漫画
