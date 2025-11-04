@@ -17,7 +17,6 @@ Windows
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-frappe.toml
 ```
 
-
 配置文件
 
 ```toml
@@ -28,11 +27,12 @@ import = [
 live_config_reload = true
 
 [window]
+padding = { x = 10, y = 10}
 opacity = 0.85
 
 [font]
-normal = { family = "FiraCode Nerd Font Mono", style="Regular" }
-size = 14
+normal = { family = "FiraCode Nerd Font Mono" }
+size = 13
 
 [selection]
 save_to_clipboard = true
@@ -44,5 +44,9 @@ blink_timeout = 0
 
 [mouse]
 hide_when_typing = true
-```
+[keyboard]
+bindings = [
+{ key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+{ key = "Enter", mods = "Alt", action = "ToggleFullscreen" },
+]
 ```
