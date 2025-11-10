@@ -176,8 +176,9 @@ sudo apt install mihomo-linux-arm64-alpha-xx.deb
 
 ### 配置文件
 
-编辑 `/etc/mihomo/config.yaml` 文件，如果不存在就创建
-具体内容查看这两个链接
+编辑 `/etc/mihomo/config.yaml` 文件，如果不存在就创建。
+具体内容查看这两个链接。
+也可以从其他软件直接把配置复制出来，比如 clash-party(mihomo-party)。
 
 - [快捷配置 - 虚空终端 Docs](https://wiki.metacubex.one/example/conf/)
 - [代理集合配置 - 虚空终端 Docs](https://wiki.metacubex.one/config/proxy-providers/)
