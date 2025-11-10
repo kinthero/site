@@ -171,7 +171,7 @@ scp .\mihomo-linux-arm64-alpha-xx.deb kilos@192.168.101.xx:~/
 ### 安装文件
 
 ```shell
-sudo dpkg -i mihomo-linux-arm64-alpha-xx.deb
+sudo apt install mihomo-linux-arm64-alpha-xx.deb
 ```
 
 ### 配置文件
@@ -188,24 +188,48 @@ sudo dpkg -i mihomo-linux-arm64-alpha-xx.deb
 mihomo -t
 ```
 
-创建服务启动可以参考[创建运行服务 - 虚空终端 Docs](https://wiki.metacubex.one/startup/service/)
+~~创建服务启动可以参考[创建运行服务 - 虚空终端 Docs](https://wiki.metacubex.one/startup/service/)~~
 
 ```shell
 # 开启 mihomo 服务
-systemctl start mihomo
+sudo systemctl start mihomo
 
-# 重新加载
-systemctl reload mihomo
-
-# 查看状态
-systemctl status mihomo
-
-# 停止服务
-systemctl stop mihomo
-
-# 关闭自启动服务
-systemctl disable mihomo
+# 开启自启动服务
+sudo systemctl enable mihomo
 
 # 查看运行日志
-journalctl -u mihomo -o cat -e
+sudo journalctl -u mihomo -o cat -e
 ```
+
+检查是否可以正常运行
+
+```shell
+curl -x http://127.0.0.1:7890 https://ipinfo.io
+```
+
+有可能缺少一些文件导致不能正常启动，可以先在本地下载好这两个文件
+
+```shell
+wget -O geoip.metadb https://github.com/MetaCubeX/meta-rules-dat/releases/latest/download/geoip.metadb
+wget -O geosite.dat https://github.com/MetaCubeX/meta-rules-dat/releases/latest/download/geosite.dat
+```
+
+然后传到树莓派
+
+```shell
+scp geoip.metadb geosite.dat user@xxx.xxx.xxx.xx:~/
+```
+
+然后再树莓派移动一下文件位置
+
+```shell
+sudo mv geoip.metadb geosite.dat /etc/mihomo
+```
+
+然后重新启动一下树莓派就可以了
+
+```shell
+sudo systemctl restart mihomo
+```
+
+
