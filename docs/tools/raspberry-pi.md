@@ -47,6 +47,7 @@ sudo dpkg-reconfigure locales
 
 选择 `en_GB.UTF-8 UTF-8`
 输入命令 `locale` 验证
+
 ## VIM
 
 安装 VIM
@@ -56,6 +57,7 @@ sudo apt install vim
 ```
 
 基本配置
+
 ```shell
 inoremap <silent> jk <Esc>
 
@@ -101,7 +103,8 @@ set noswapfile
 ```
 
 ## docker
-安装 docker
+
+### 安装 docker
 
 ```shell
 curl -fsSL https://get.docker.com -o install-docker.sh
@@ -114,6 +117,8 @@ sudo sh install-docker.sh --mirror Aliyun
 sudo systemctl enable docker
 ```
 
+### ~~设置 rootless 树莓派不推荐做~~
+
 当前用户添加到 docker 用户组
 
 ```shell
@@ -121,7 +126,7 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-~~设置 rootless~~，不推荐
+~~设置 rootless~~
 
 ```shell
 sudo apt update
@@ -133,6 +138,8 @@ sudo loginctl enable-linger [username]
 # verify
 docker info | grep rootless
 ```
+
+### 设置 docker 镜像
 
 设置 docker 镜像，可以在[这里](https://status.daocloud.io/status/docker)找找。root 模式是 `/etc/docker/daemon.json`，rootless 模式是 `~/.config/docker/daemon.json`
 
@@ -150,11 +157,34 @@ sudo systemctl restart docker
 # restart docker, rootless
 # systemctl --user restart docker.service
 ```
-
-测试一下
+### 设置代理
 
 ```shell
-docker pull hello-world
+sudo mkdir -p /etc/systemd/system/docker.service.d
+sudo nano /etc/systemd/system/docker.service.d/proxy.conf
+```
+
+写入下面的内容
+
+```shell
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:7890"
+Environment="HTTPS_PROXY=http://127.0.0.1:7890"
+Environment="NO_PROXY=localhost,127.0.0.1"
+```
+
+保存退出后执行
+
+```shell
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+### 测试一下
+
+```shell
+docker run --rm hello-world
 ```
 
 ## 网络问题
@@ -233,4 +263,25 @@ sudo mv geoip.metadb geosite.dat /etc/mihomo
 sudo systemctl restart mihomo
 ```
 
+创建个函数方便开启关闭代理，在 `.bashrc` 中写入
+
+```shell
+proxy() {
+    if [ "$1" = "on" ]; then
+        export https_proxy=http://127.0.0.1:7890
+        export http_proxy=http://127.0.0.1:7890
+        export all_proxy=http://127.0.0.1:7890
+        echo "Proxy is ON"
+    elif [ "$1" = "off" ]; then
+        unset https_proxy http_proxy all_proxy
+        echo "Proxy is OFF"
+    else
+        echo "Usage: proxy [on|off]"
+        echo "Current proxy settings:"
+        echo "  http_proxy=$http_proxy"
+        echo "  https_proxy=$https_proxy"
+        echo "  all_proxy=$all_proxy"
+    fi
+}
+```
 
