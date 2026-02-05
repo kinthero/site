@@ -56,3 +56,13 @@ customDomains = ["web2.mysite.com"]
 - 记录值：服务器的 IP 地址，也就是 serverAddr
 
 同理，再添加 web2 的解析
+
+## caddy
+
+在 caddy 把服务代理出去的时候这样子设置
+
+```text
+web1.mysite.com {
+    reverse_proxy localhost:80
+}
+```
