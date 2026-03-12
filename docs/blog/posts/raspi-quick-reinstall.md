@@ -5,6 +5,20 @@ date:
 
 # 树莓派快速重装
 
+## ssh 连接
+
+先删除之前的连接记录
+
+```bash
+ssh-keygen -R 192.168.101.43
+```
+
+然后连接
+
+```bash
+ssh kilos@192.168.101.43
+```
+
 ## 挂载硬盘
 
 查看硬盘
@@ -16,9 +30,9 @@ lsblk -f
 挂载硬盘
 
 ```shell
-sudo mkdir /DATA
-sudo mount /dev/sda1 /DATA
-ls /DATA
+sudo mkdir /data
+sudo mount /dev/sda1 /data
+ls /data
 ```
 
 查看硬盘的 UUID
@@ -36,7 +50,7 @@ sudo nano /etc/fstab
 写入
 
 ```shell
-UUID=xxxx /DATA ext4 defaults,noatime 0 2
+UUID=xxxx /data ext4 defaults,noatime 0 2
 ```
 
 最后测试一下
@@ -44,53 +58,6 @@ UUID=xxxx /DATA ext4 defaults,noatime 0 2
 ```shell
 sudo mount -a
 ```
-
-## 安装 docker
-
-```shell
-curl -fsSL https://get.docker.com -o install-docker.sh
-sudo sh install-docker.sh --mirror Aliyun
-sudo systemctl enable docker
-```
-
-使用 docker 镜像
-
-编辑，`sudo nano /etc/docker/daemon.json`。
-
-```shell
-{
-  "registry-mirrors": [
-    "https://docker.1ms.run",
-    "https://docker.m.daocloud.io",
-    "https://dockerproxy.net",
-    "https://gcr.m.daocloud.io",
-    "https://ghcr.io",
-    "https://ghcr.m.daocloud.io",
-    "https://quay.io",
-    "https://quay.m.daocloud.io"
-  ]
-}
-```
-
-重启 docker
-
-```shell
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-```
-
-查看是否生效
-
-```shell
-docker info | grep -A3 "Registry Mirrors"
-```
-
-测试一下是否可行了
-
-```shell
-sudo docker run --rm hello-world
-```
-
 ## 配置 mihomo
 
 下载 mihomo，从[这里](https://github.com/MetaCubeX/mihomo/releases)可以找到安装包。下载 mihomo-linux-arm64-vx.xx.xx.deb。然后安装
@@ -135,7 +102,156 @@ kilos ALL=NOPASSWD: /bin/systemctl start mihomo, /bin/systemctl stop mihomo
 
 然后 `source .bashrc`。
 
-## 配置 casaos
+测试一下连接
+
+```bash
+curl -x http://127.0.0.1:7890 https://ipinfo.io
+```
+
+## 安装 docker
+
+```shell
+curl -fsSL https://get.docker.com -o install-docker.sh
+sudo sh install-docker.sh --mirror Aliyun
+sudo systemctl enable docker
+```
+
+添加用户组
+
+```shell
+sudo usermod -aG docker kilos
+newgrp docker
+groups kilos
+```
+### 设置代理
+
+创建配置文件
+
+```bash
+sudo mkdir -p /etc/systemd/system/docker.service.d
+sudo nano /etc/systemd/system/docker.service.d/proxy.conf
+```
+
+写入
+
+```bash
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:7890"
+Environment="HTTPS_PROXY=http://127.0.0.1:7890"
+Environment="NO_PROXY=localhost,127.0.0.1,.local"
+```
+
+重新加载 docker
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+检查
+
+```bash
+docker info | grep -i proxy
+```
+
+### ~~使用 docker 镜像~~
+
+编辑，`sudo nano /etc/docker/daemon.json`。
+
+```shell
+{
+  "registry-mirrors": [
+    "https://docker.1ms.run",
+    "https://docker.m.daocloud.io",
+    "https://dockerproxy.net",
+    "https://gcr.m.daocloud.io",
+    "https://ghcr.io",
+    "https://ghcr.m.daocloud.io",
+    "https://quay.io",
+    "https://quay.m.daocloud.io"
+  ]
+}
+```
+
+重启 docker
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+查看是否生效
+
+```shell
+docker info | grep -A3 "Registry Mirrors"
+```
+
+测试一下是否可行了
+
+```shell
+sudo docker run --rm hello-world
+```
+## 安装 frp
+
+## 配置 frpc
+
+下载 [frp_xxx_linux_arm65.tar.gz](https://github.com/fatedier/frp/releases)。
+
+```shell
+tar -zxvf frp_0.67.0_linux_arm64.tar.gz
+sudo mkdir /usr/local/frp
+sudo cp frp_xxx_linux_arm64/frpc /usr/local/frp/frpc
+```
+
+把 `frpc.toml` 文件移动过去 `/usr/local/frp/frpc.toml`。
+
+```bash
+serverAddr = "xx.xxx.xxx.xx"
+serverPort = xxxx
+auth.token = "xxx"
+
+[[proxies]]
+name = "xxxx"
+type = "http"
+localPort = xxxx
+customDomains = ["xxxx.kinther.site"]
+
+[[proxies]]
+name = "xxxx"
+type = "http"
+localPort = xxxx
+customDomains = ["xxxx.kinther.site"]
+```
+
+创建 `/etc/systemd/system/frpc.service`。
+
+```bash
+[Unit]
+Description=frp client
+After=network.target
+
+[Service]
+ExecStart=/usr/local/frp/frpc -c /usr/local/frp/frpc.toml
+Restart=on-failure
+RestartSec=5s
+User=nobody
+
+[Install]
+WantedBy=multi-user.target
+```
+
+设置启动
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl start frpc
+sudo systemctl enable frpc
+```
+
+测试一下是否可以同步了
+
+
+## ~~配置 casaos~~
 
 安装 casaos
 
@@ -187,4 +303,27 @@ echo "💾 内存使用: $MEM_PERCENT ($MEM_USED/$MEM_TOTAL)"
 echo "💿 存储空间: $(df -h / | tail -1 | awk '{print $5 " (" $3 "/" $2 ")"}')"
 echo "⏰ 运行时间: $(uptime -p | sed 's/up //')"
 echo "=========================================="
+```
+
+## ssh 免密连接
+
+在本地电脑上，生成密钥
+
+```bash
+ssh-keygen -t ed25519 -C "email"
+```
+
+复制公钥到服务器
+
+```bash
+ssh-copy-id -i C:\Users\user\.ssh\id_ed25519.pub user@ip
+```
+
+创建 `.ssh/config` 文件，写入
+
+```
+Host pi
+    HostName ip
+    User user
+    IdentityFile ~/.ssh/id_ed25519
 ```
